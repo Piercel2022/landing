@@ -3,379 +3,660 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>High-Converting Landing Pages for Startups</title>
+  <title>High-Converting Landing Pages in 7 Days | Startup Growth</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="High-converting landing pages for startups. Designed and built in 7 days to increase signups and conversions.">
+  <meta name="description" content="Get a high-converting landing page built in 7 days. Proven to increase signups by 187% on average. Perfect for startups and MVPs.">
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+    .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .float { animation: float 3s ease-in-out infinite; }
+    .pulse-subtle { animation: pulse-subtle 2s ease-in-out infinite; }
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-link {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .stat-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 
-<body class="bg-white text-gray-900">
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+  <!-- Header -->
+  <header class="fixed top-0 w-full glass z-50 shadow-sm">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-xl font-bold">PixelLaunch</a>
+      <div class="hidden md:flex gap-8">
+        <a href="#services" class="nav-link font-medium">Services</a>
+        <a href="demo-projects.html" class="nav-link font-medium">Case Studies</a>
+        <a href="#pricing" class="nav-link font-medium">Pricing</a>
+        <a href="#contact" class="nav-link font-medium">Contact</a>
+      </div>
+      <a href="https://calendly.com/piercel-moussa/" 
+         class="bg-black text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-800 transition text-sm">
+        Book Free Audit
+      </a>
+    </nav>
+  </header>
 
-  <!-- HERO -->
-  <section class="py-20 px-6 max-w-6xl mx-auto">
-    <div class="max-w-3xl">
-      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-        High-Converting Landing Pages<br class="hidden md:block" />
-        Built in 7 Days for Startups
-      </h1>
-      <p class="text-lg text-gray-600 mb-8">
-        I design and build conversion-focused landing pages that help startups get more users,
-        signups, and revenue — without hiring a full team.
-      </p>
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in-up">
+        <div class="inline-block mb-4 px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+          ⚡ 7-Day Delivery Guaranteed
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+          Landing Pages That <span class="gradient-text">Convert</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+          Get more signups, demos, and revenue with conversion-optimized landing pages built specifically for startups. <strong class="text-gray-900">Average +187% increase</strong> in conversions.
+        </p>
 
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="https://calendly.com/piercel-moussa/" 
-           class="bg-black text-white px-8 py-4 rounded-lg font-medium">
-            Book Free Audit
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <a href="https://calendly.com/piercel-moussa/" 
+             class="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition text-center shadow-lg hover:shadow-xl">
+            Book Free Audit →
           </a>
+          <a href="demo-projects.html" 
+             class="border-2 border-gray-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition text-center">
+            View Case Studies
+          </a>
+        </div>
 
-        <a href="#work" class="border border-gray-300 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition">
-          View Examples
+        <!-- Social Proof -->
+        <div class="flex items-center gap-6 text-sm text-gray-600">
+          <div class="flex -space-x-2">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"></div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white"></div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 border-2 border-white"></div>
+          </div>
+          <span><strong class="text-gray-900">12+</strong> startups launched</span>
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="relative float">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-200 to-pink-200 rounded-3xl blur-3xl opacity-30"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+          <div class="space-y-4">
+            <div class="h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded w-3/4"></div>
+            <div class="h-4 bg-gray-200 rounded w-full"></div>
+            <div class="h-4 bg-gray-200 rounded w-5/6"></div>
+            <div class="mt-6 grid grid-cols-2 gap-4">
+              <div class="stat-card bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border border-green-100">
+                <div class="text-2xl font-bold text-green-600">+312%</div>
+                <div class="text-xs text-gray-600">Signups</div>
+              </div>
+              <div class="stat-card bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl border border-blue-100">
+                <div class="text-2xl font-bold text-blue-600">+289%</div>
+                <div class="text-xs text-gray-600">Trials</div>
+              </div>
+            </div>
+            <div class="mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg text-center font-semibold">
+              Get Started →
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-12 px-6 bg-gradient-to-r from-gray-900 to-black text-white">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="text-4xl font-bold mb-2 gradient-text">7 Days</div>
+        <div class="text-gray-400">Average Delivery</div>
+      </div>
+      <div>
+        <div class="text-4xl font-bold mb-2 text-white">+187%</div>
+        <div class="text-gray-400">Avg. Conversion Lift</div>
+      </div>
+      <div>
+        <div class="text-4xl font-bold mb-2 text-white">12+</div>
+        <div class="text-gray-400">Startups Launched</div>
+      </div>
+      <div>
+        <div class="text-4xl font-bold mb-2 text-white">100%</div>
+        <div class="text-gray-400">Satisfaction Rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Carousel -->
+  <section id="services" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Proven Results</h2>
+        <p class="text-xl text-gray-600">Real projects, real numbers, real growth</p>
+      </div>
+
+      <div class="relative overflow-hidden">
+        <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+          
+          <!-- Slide 1 -->
+          <div class="min-w-full px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+                  SaaS Platform
+                </div>
+                <h3 class="text-3xl font-bold mb-4">From Idea to 1.2K Users</h3>
+                <p class="text-gray-600 mb-6 text-lg">
+                  Validated a SaaS concept and converted early traffic into paying customers with a laser-focused landing page.
+                </p>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Clear value proposition above the fold</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Conversion-first UX flow</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Deployed in 5 days</span>
+                  </div>
+                </div>
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100">
+                  <div class="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div class="text-3xl font-bold text-blue-600">+234%</div>
+                      <div class="text-sm text-gray-600">User Growth</div>
+                    </div>
+                    <div>
+                      <div class="text-3xl font-bold text-indigo-600">1.2K</div>
+                      <div class="text-sm text-gray-600">Total Signups</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl">
+                <svg viewBox="0 0 400 300" class="w-full h-auto">
+                  <rect x="20" y="20" width="360" height="260" rx="12" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+                  <rect x="20" y="20" width="360" height="50" rx="12" fill="#4F46E5"/>
+                  <circle cx="45" cy="45" r="8" fill="white" opacity="0.3"/>
+                  <circle cx="70" cy="45" r="8" fill="white" opacity="0.3"/>
+                  <circle cx="95" cy="45" r="8" fill="white" opacity="0.3"/>
+                  <rect x="40" y="90" width="160" height="120" rx="8" fill="#EEF2FF"/>
+                  <polyline points="60,170 90,140 120,155 150,120 180,135" 
+                            fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="60" cy="170" r="4" fill="#4F46E5"/>
+                  <circle cx="90" cy="140" r="4" fill="#4F46E5"/>
+                  <circle cx="120" cy="155" r="4" fill="#4F46E5"/>
+                  <circle cx="150" cy="120" r="4" fill="#4F46E5"/>
+                  <circle cx="180" cy="135" r="4" fill="#4F46E5"/>
+                  <rect x="220" y="90" width="140" height="50" rx="8" fill="#10B981" opacity="0.1"/>
+                  <text x="240" y="110" font-size="12" fill="#059669" font-weight="600">Users</text>
+                  <text x="240" y="130" font-size="20" fill="#047857" font-weight="bold">+234%</text>
+                  <rect x="220" y="160" width="140" height="50" rx="8" fill="#8B5CF6" opacity="0.1"/>
+                  <text x="240" y="180" font-size="12" fill="#7C3AED" font-weight="600">Signups</text>
+                  <text x="240" y="200" font-size="20" fill="#6D28D9" font-weight="bold">1.2K</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="min-w-full px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-4">
+                  AI Startup
+                </div>
+                <h3 class="text-3xl font-bold mb-4">Simplified Complex AI</h3>
+                <p class="text-gray-600 mb-6 text-lg">
+                  Transformed technical AI jargon into clear messaging that drove 3x more demo bookings.
+                </p>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Simplified complex messaging</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Streamlined demo booking flow</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Mobile-optimized experience</span>
+                  </div>
+                </div>
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
+                  <div class="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div class="text-3xl font-bold text-purple-600">3x</div>
+                      <div class="text-sm text-gray-600">Demo Bookings</div>
+                    </div>
+                    <div>
+                      <div class="text-3xl font-bold text-pink-600">45%</div>
+                      <div class="text-sm text-gray-600">Conversion Rate</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl">
+                <svg viewBox="0 0 400 300" class="w-full h-auto">
+                  <defs>
+                    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#8B5CF6"/>
+                      <stop offset="100%" style="stop-color:#EC4899"/>
+                    </linearGradient>
+                  </defs>
+                  <circle cx="200" cy="150" r="100" fill="url(#aiGrad)" opacity="0.1"/>
+                  <circle cx="200" cy="150" r="30" fill="url(#aiGrad)" opacity="0.9"/>
+                  <circle cx="150" cy="100" r="20" fill="#8B5CF6" opacity="0.8"/>
+                  <circle cx="250" cy="100" r="20" fill="#A855F7" opacity="0.8"/>
+                  <circle cx="150" cy="200" r="20" fill="#C026D3" opacity="0.8"/>
+                  <circle cx="250" cy="200" r="20" fill="#EC4899" opacity="0.8"/>
+                  <line x1="200" y1="150" x2="150" y2="100" stroke="#8B5CF6" stroke-width="2" opacity="0.4"/>
+                  <line x1="200" y1="150" x2="250" y2="100" stroke="#A855F7" stroke-width="2" opacity="0.4"/>
+                  <line x1="200" y1="150" x2="150" y2="200" stroke="#C026D3" stroke-width="2" opacity="0.4"/>
+                  <line x1="200" y1="150" x2="250" y2="200" stroke="#EC4899" stroke-width="2" opacity="0.4"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="min-w-full px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-4">
+                  Consulting
+                </div>
+                <h3 class="text-3xl font-bold mb-4">Consistent Lead Engine</h3>
+                <p class="text-gray-600 mb-6 text-lg">
+                  Transformed a basic website into a 24/7 lead generation machine with strategic CTAs and trust signals.
+                </p>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Strategic CTA placement</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Built trust with social proof</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+                    <span class="text-gray-700">Optimized conversion funnel</span>
+                  </div>
+                </div>
+                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl border border-emerald-100">
+                  <div class="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div class="text-3xl font-bold text-emerald-600">450</div>
+                      <div class="text-sm text-gray-600">Monthly Leads</div>
+                    </div>
+                    <div>
+                      <div class="text-3xl font-bold text-teal-600">27%</div>
+                      <div class="text-sm text-gray-600">Close Rate</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-8 rounded-2xl">
+                <svg viewBox="0 0 400 300" class="w-full h-auto">
+                  <path d="M80,40 L320,40 L280,110 L120,110 Z" fill="#10B981" opacity="0.2"/>
+                  <path d="M120,110 L280,110 L250,180 L150,180 Z" fill="#059669" opacity="0.3"/>
+                  <path d="M150,180 L250,180 L230,250 L170,250 Z" fill="#047857" opacity="0.4"/>
+                  <circle cx="200" cy="70" r="15" fill="#10B981"/>
+                  <text x="200" y="95" text-anchor="middle" fill="#047857" font-size="14" font-weight="600">1000 Visits</text>
+                  <circle cx="200" cy="145" r="15" fill="#059669"/>
+                  <text x="200" y="165" text-anchor="middle" fill="#047857" font-size="14" font-weight="600">450 Leads</text>
+                  <circle cx="200" cy="215" r="15" fill="#047857"/>
+                  <text x="200" y="235" text-anchor="middle" fill="#047857" font-size="14" font-weight="600">120 Clients</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flex justify-center mt-8 gap-3" id="dots"></div>
+        <div class="flex justify-center gap-4 mt-6">
+          <button onclick="prevSlide()" class="w-12 h-12 border-2 border-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition flex items-center justify-center font-bold">←</button>
+          <button onclick="nextSlide()" class="w-12 h-12 border-2 border-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition flex items-center justify-center font-bold">→</button>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="demo-projects.html" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition text-lg">
+          View Full Case Studies →
         </a>
       </div>
     </div>
   </section>
 
-  <!-- WORK / CASE STUDY -->
-<section id="work" class="py-20 px-6 bg-white">
-  <div class="max-w-6xl mx-auto text-center">
+  <!-- What You Get -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Everything You Need</h2>
+        <p class="text-xl text-gray-600">Launch-ready in 7 days</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 stat-card">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-white text-2xl mb-4">🎨</div>
+          <h3 class="text-xl font-bold mb-3">Design & Strategy</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li>✓ Custom Figma design</li>
+            <li>✓ Conversion-optimized structure</li>
+            <li>✓ Brand-aligned aesthetics</li>
+            <li>✓ Mobile-first responsive</li>
+          </ul>
+        </div>
 
-    <h2 class="text-3xl font-bold mb-12">
-      Proven Results for Modern Startups
-    </h2>
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 stat-card">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white text-2xl mb-4">⚙️</div>
+          <h3 class="text-xl font-bold mb-3">Development</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li>✓ Clean HTML + Tailwind CSS</li>
+            <li>✓ Fast loading performance</li>
+            <li>✓ SEO-optimized code</li>
+            <li>✓ Cross-browser compatible</li>
+          </ul>
+        </div>
 
-    <!-- CAROUSEL -->
-    <div class="relative overflow-hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 stat-card">
+          <div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center text-white text-2xl mb-4">🚀</div>
+          <h3 class="text-xl font-bold mb-3">Launch Support</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li>✓ Deployed on Netlify/Vercel</li>
+            <li>✓ Basic SEO setup</li>
+            <li>✓ 2 rounds of revisions</li>
+            <li>✓ 7-day delivery guarantee</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+  <!-- Pricing -->
+  <section id="pricing" class="py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
+        <p class="text-xl text-gray-600">Choose the package that fits your needs</p>
+      </div>
 
-        <!-- SLIDE 1 - SaaS -->
-        <div class="min-w-full px-4 slide">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="fade">
-              <h3 class="text-2xl font-semibold mb-4">
-                SaaS — From Idea to Launch
-              </h3>
-              <p class="text-gray-600 mb-6">
-                Validated a SaaS concept and converted early traffic into real users.
-              </p>
-              <ul class="space-y-2 text-gray-700">
-                <li>✓ Clear value proposition</li>
-                <li>✓ Conversion-first UX</li>
-                <li>✓ Fast deployment</li>
-              </ul>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="border-2 border-gray-200 p-8 rounded-2xl bg-white hover:shadow-xl transition">
+          <div class="text-sm font-semibold text-gray-500 mb-2">STARTER</div>
+          <div class="text-5xl font-bold mb-2">$500</div>
+          <div class="text-gray-600 mb-6">Perfect for MVPs</div>
+          <ul class="space-y-3 text-gray-700 mb-8">
+            <li>✓ Single page design</li>
+            <li>✓ Mobile responsive</li>
+            <li>✓ 1 revision round</li>
+            <li>✓ 7-day delivery</li>
+          </ul>
+          <a href="https://calendly.com/piercel-moussa/" class="block text-center border-2 border-black px-6 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition">
+            Get Started
+          </a>
+        </div>
+
+        <div class="border-4 border-black p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-2xl scale-105 relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-1 rounded-full text-sm font-bold">
+            MOST POPULAR
+          </div>
+          <div class="text-sm font-semibold text-gray-500 mb-2">GROWTH</div>
+          <div class="text-5xl font-bold mb-2">$1,000</div>
+          <div class="text-gray-600 mb-6">Best for launches</div>
+          <ul class="space-y-3 text-gray-700 mb-8">
+            <li>✓ Multi-section page</li>
+            <li>✓ Advanced animations</li>
+            <li>✓ 2 revision rounds</li>
+            <li>✓ Priority support</li>
+          </ul>
+          <a href="https://calendly.com/piercel-moussa/" class="block text-center bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+            Get Started
+          </a>
+        </div>
+
+        <div class="border-2 border-gray-200 p-8 rounded-2xl bg-white hover:shadow-xl transition">
+         <div class="border-2 border-gray-200 p-8 rounded-2xl bg-white hover:shadow-xl transition">
+          <div class="text-sm font-semibold text-gray-500 mb-2">PREMIUM</div>
+          <div class="text-5xl font-bold mb-2">$2,500</div>
+          <div class="text-gray-600 mb-6">For scale & growth</div>
+          <ul class="space-y-3 text-gray-700 mb-8">
+            <li>✓ Multi-page site</li>
+            <li>✓ Custom interactions</li>
+            <li>✓ Unlimited revisions</li>
+            <li>✓ Dedicated support</li>
+          </ul>
+          <a href="https://calendly.com/piercel-moussa/" class="block text-center border-2 border-black px-6 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition">
+            Get Started
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-600 via-pink-600 to-purple-700 text-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Boost Your Conversions?</h2>
+      <p class="text-xl mb-8 opacity-90">Join 12+ startups that transformed their landing pages into conversion machines</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://calendly.com/piercel-moussa/" 
+           class="bg-white text-purple-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition text-lg shadow-xl">
+          Book Your Free Audit
+        </a>
+        <a href="demo-projects.html" 
+           class="border-2 border-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-purple-600 transition text-lg">
+          See Case Studies
+        </a>
+      </div>
+      <p class="mt-6 text-sm opacity-75">No commitment required • 7-day delivery guarantee</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+        <p class="text-xl text-gray-600">Let's discuss your project and see how we can help</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-xl">📧</div>
+              <div>
+                <div class="font-semibold text-gray-900">Email</div>
+                <a href="mailto:piercel.moussa@gmail.com" class="text-gray-600 hover:text-purple-600 transition">piercel.moussa@gmail.com</a>
+              </div>
             </div>
-            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl fade">
-              <svg viewBox="0 0 400 300" class="w-full h-auto">
-                <!-- Dashboard background -->
-                <rect x="20" y="20" width="360" height="260" rx="12" fill="white" stroke="#E5E7EB" stroke-width="2"/>
-                
-                <!-- Header bar -->
-                <rect x="20" y="20" width="360" height="50" rx="12" fill="#4F46E5"/>
-                <circle cx="45" cy="45" r="8" fill="white" opacity="0.3"/>
-                <circle cx="70" cy="45" r="8" fill="white" opacity="0.3"/>
-                <circle cx="95" cy="45" r="8" fill="white" opacity="0.3"/>
-                
-                <!-- Chart area -->
-                <rect x="40" y="90" width="160" height="120" rx="8" fill="#EEF2FF"/>
-                <polyline points="60,170 90,140 120,155 150,120 180,135" 
-                          fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="60" cy="170" r="4" fill="#4F46E5"/>
-                <circle cx="90" cy="140" r="4" fill="#4F46E5"/>
-                <circle cx="120" cy="155" r="4" fill="#4F46E5"/>
-                <circle cx="150" cy="120" r="4" fill="#4F46E5"/>
-                <circle cx="180" cy="135" r="4" fill="#4F46E5"/>
-                
-                <!-- Stats cards -->
-                <rect x="220" y="90" width="140" height="50" rx="8" fill="#10B981" opacity="0.1"/>
-                <text x="240" y="110" font-size="12" fill="#059669" font-weight="600">Users</text>
-                <text x="240" y="130" font-size="20" fill="#047857" font-weight="bold">+234%</text>
-                
-                <rect x="220" y="160" width="140" height="50" rx="8" fill="#8B5CF6" opacity="0.1"/>
-                <text x="240" y="180" font-size="12" fill="#7C3AED" font-weight="600">Signups</text>
-                <text x="240" y="200" font-size="20" fill="#6D28D9" font-weight="bold">1.2K</text>
-                
-                <!-- Progress bars -->
-                <rect x="40" y="230" width="320" height="8" rx="4" fill="#E5E7EB"/>
-                <rect x="40" y="230" width="240" height="8" rx="4" fill="#4F46E5"/>
-                
-                <rect x="40" y="255" width="320" height="8" rx="4" fill="#E5E7EB"/>
-                <rect x="40" y="255" width="280" height="8" rx="4" fill="#10B981"/>
-              </svg>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-xl">📅</div>
+              <div>
+                <div class="font-semibold text-gray-900">Book a Call</div>
+                <a href="https://calendly.com/piercel-moussa/" class="text-gray-600 hover:text-blue-600 transition">Schedule Free Audit</a>
+              </div>
             </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-xl">⚡</div>
+              <div>
+                <div class="font-semibold text-gray-900">Response Time</div>
+                <div class="text-gray-600">Within 24 hours</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+            <div class="font-semibold text-gray-900 mb-2">What Happens Next?</div>
+            <ol class="space-y-2 text-sm text-gray-600">
+              <li>1. We discuss your goals and requirements</li>
+              <li>2. I provide a detailed proposal and timeline</li>
+              <li>3. Your landing page is delivered in 7 days</li>
+            </ol>
           </div>
         </div>
 
-        <!-- SLIDE 2 - AI -->
-        <div class="min-w-full px-4 slide">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="fade">
-              <h3 class="text-2xl font-semibold mb-4">
-                AI Startup — MVP Validation
-              </h3>
-              <p class="text-gray-600 mb-6">
-                Simplified complex AI messaging to drive demo bookings.
-              </p>
-              <ul class="space-y-2 text-gray-700">
-                <li>✓ Messaging clarity</li>
-                <li>✓ Conversion-driven UX</li>
-                <li>✓ Faster onboarding</li>
-              </ul>
+        <div class="bg-gray-50 p-8 rounded-2xl">
+          <form class="space-y-4" onsubmit="handleSubmit(event)">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+              <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Your name">
             </div>
-            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl fade">
-              <svg viewBox="0 0 400 300" class="w-full h-auto">
-                <!-- AI Brain Network -->
-                <defs>
-                  <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#8B5CF6"/>
-                    <stop offset="100%" style="stop-color:#EC4899"/>
-                  </linearGradient>
-                </defs>
-                
-                <!-- Background circle -->
-                <circle cx="200" cy="150" r="100" fill="url(#aiGradient)" opacity="0.1"/>
-                
-                <!-- Neural network nodes -->
-                <circle cx="200" cy="150" r="30" fill="url(#aiGradient)" opacity="0.9"/>
-                <circle cx="150" cy="100" r="20" fill="#8B5CF6" opacity="0.8"/>
-                <circle cx="250" cy="100" r="20" fill="#A855F7" opacity="0.8"/>
-                <circle cx="150" cy="200" r="20" fill="#C026D3" opacity="0.8"/>
-                <circle cx="250" cy="200" r="20" fill="#EC4899" opacity="0.8"/>
-                <circle cx="100" cy="150" r="15" fill="#7C3AED" opacity="0.7"/>
-                <circle cx="300" cy="150" r="15" fill="#DB2777" opacity="0.7"/>
-                
-                <!-- Connections -->
-                <line x1="200" y1="150" x2="150" y2="100" stroke="#8B5CF6" stroke-width="2" opacity="0.4"/>
-                <line x1="200" y1="150" x2="250" y2="100" stroke="#A855F7" stroke-width="2" opacity="0.4"/>
-                <line x1="200" y1="150" x2="150" y2="200" stroke="#C026D3" stroke-width="2" opacity="0.4"/>
-                <line x1="200" y1="150" x2="250" y2="200" stroke="#EC4899" stroke-width="2" opacity="0.4"/>
-                <line x1="200" y1="150" x2="100" y2="150" stroke="#7C3AED" stroke-width="2" opacity="0.4"/>
-                <line x1="200" y1="150" x2="300" y2="150" stroke="#DB2777" stroke-width="2" opacity="0.4"/>
-                
-                <!-- AI icon in center -->
-                <path d="M190,140 L195,150 L190,160 M210,140 L205,150 L210,160 M195,145 L205,145" 
-                      stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-                
-                <!-- Floating particles -->
-                <circle cx="120" cy="80" r="3" fill="#8B5CF6" opacity="0.6"/>
-                <circle cx="280" cy="220" r="3" fill="#EC4899" opacity="0.6"/>
-                <circle cx="320" cy="100" r="4" fill="#A855F7" opacity="0.5"/>
-                <circle cx="80" cy="220" r="4" fill="#C026D3" opacity="0.5"/>
-              </svg>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+              <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="you@company.com">
             </div>
-          </div>
-        </div>
-
-        <!-- SLIDE 3 - Consulting -->
-        <div class="min-w-full px-4 slide">
-          <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="fade">
-              <h3 class="text-2xl font-semibold mb-4">
-                Consulting — Lead Machine
-              </h3>
-              <p class="text-gray-600 mb-6">
-                Turned a simple website into a consistent lead engine.
-              </p>
-              <ul class="space-y-2 text-gray-700">
-                <li>✓ Strong CTAs</li>
-                <li>✓ Trust signals</li>
-                <li>✓ Conversion optimization</li>
-              </ul>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Project Type</label>
+              <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                <option>New Landing Page</option>
+                <option>Redesign Existing Page</option>
+                <option>Multi-page Site</option>
+                <option>Not Sure Yet</option>
+              </select>
             </div>
-            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-xl fade">
-              <svg viewBox="0 0 400 300" class="w-full h-auto">
-                <!-- Funnel visualization -->
-                <defs>
-                  <linearGradient id="consultGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#10B981"/>
-                    <stop offset="100%" style="stop-color:#0891B2"/>
-                  </linearGradient>
-                </defs>
-                
-                <!-- Funnel stages -->
-                <path d="M80,40 L320,40 L280,110 L120,110 Z" fill="#10B981" opacity="0.2"/>
-                <path d="M120,110 L280,110 L250,180 L150,180 Z" fill="#059669" opacity="0.3"/>
-                <path d="M150,180 L250,180 L230,250 L170,250 Z" fill="#047857" opacity="0.4"/>
-                
-                <!-- Icons and labels -->
-                <circle cx="200" cy="70" r="15" fill="#10B981"/>
-                <text x="200" y="75" text-anchor="middle" fill="white" font-size="16" font-weight="bold">👁</text>
-                <text x="200" y="95" text-anchor="middle" fill="#047857" font-size="14" font-weight="600">1000 Visits</text>
-                
-                <circle cx="200" cy="145" r="15" fill="#059669"/>
-                <text x="200" y="150" text-anchor="middle" fill="white" font-size="16" font-weight="bold">📧</text>
-                <text x="200" y="165" text-anchor="middle" fill="#047857" font-size="14" font-weight="600">450 Leads</text>
-                
-                <circle cx="200" cy="215" r="15" fill="#047857"/>
-                <text x="200" y="220" text-anchor="middle" fill="white" font-size="16" font-weight="bold">✓</text>
-                <text x="200" y="235" text-anchor="middle" fill="#047857" font-size="14" font-weight="600">120 Clients</text>
-                
-                <!-- Growth arrow -->
-                <path d="M340,60 L380,60 L380,240 L340,240" fill="none" stroke="#0891B2" stroke-width="3" stroke-linecap="round"/>
-                <path d="M370,230 L380,240 L370,250" fill="none" stroke="#0891B2" stroke-width="3" stroke-linecap="round"/>
-                
-                <!-- Percentage badges -->
-                <rect x="310" y="100" width="60" height="30" rx="15" fill="#0891B2"/>
-                <text x="340" y="120" text-anchor="middle" fill="white" font-size="14" font-weight="bold">45%</text>
-                
-                <rect x="310" y="170" width="60" height="30" rx="15" fill="#0891B2"/>
-                <text x="340" y="190" text-anchor="middle" fill="white" font-size="14" font-weight="bold">27%</text>
-              </svg>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+              <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Tell me about your project..."></textarea>
             </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- DOTS -->
-      <div class="flex justify-center mt-8 gap-3" id="dots"></div>
-
-      <!-- NAV -->
-      <div class="flex justify-center gap-6 mt-6">
-        <button onclick="prevSlide()" class="px-4 py-2 border rounded-lg hover:bg-gray-100 transition">←</button>
-        <button onclick="nextSlide()" class="px-4 py-2 border rounded-lg hover:bg-gray-100 transition">→</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <!-- TRUST / VALUE -->
-  <section class="bg-gray-50 py-16 px-6">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Fast Delivery</h3>
-        <p class="text-gray-600">Launch-ready in 7 days or less.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Conversion Focused</h3>
-        <p class="text-gray-600">Built to turn visitors into users.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold mb-2">Clean & Scalable</h3>
-        <p class="text-gray-600">Modern UI with clean Tailwind code.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT YOU GET -->
-  <section class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-10 text-center">What You Get</h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      <ul class="space-y-3 text-gray-700">
-        <li>✓ Custom Figma design</li>
-        <li>✓ High-converting page structure</li>
-        <li>✓ Mobile-first responsive layout</li>
-        <li>✓ Clean HTML + Tailwind code</li>
-      </ul>
-      <ul class="space-y-3 text-gray-700">
-        <li>✓ Deployment (Netlify / Vercel)</li>
-        <li>✓ Basic SEO setup</li>
-        <li>✓ 1–2 revision rounds</li>
-        <li>✓ Delivery in 7 days</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section class="bg-gray-50 py-20 px-6">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Simple Pricing</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        
-        <div class="border p-6 rounded-lg bg-white">
-          <h3 class="text-xl font-semibold mb-2">Starter</h3>
-          <p class="text-3xl font-bold mb-4">$500</p>
-          <p class="text-gray-600 mb-4">Perfect for MVPs</p>
-        </div>
-
-        <div class="border-2 border-black p-6 rounded-lg bg-white">
-          <h3 class="text-xl font-semibold mb-2">Growth</h3>
-          <p class="text-3xl font-bold mb-4">$1,000</p>
-          <p class="text-gray-600 mb-4">Best for product launches</p>
-        </div>
-
-        <div class="border p-6 rounded-lg bg-white">
-          <h3 class="text-xl font-semibold mb-2">Premium</h3>
-          <p class="text-3xl font-bold mb-4">$2,000</p>
-          <p class="text-gray-600 mb-4">Strategy + full optimization</p>
+            <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-4 rounded-lg font-bold hover:shadow-xl transition">
+              Send Message →
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="contact" class="py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Ready to Launch?</h2>
-    <p class="text-gray-600 mb-6">
-      Book a free audit and get actionable insights for your landing page.
-    </p>
-    <a href="https://calendly.com/piercel-moussa/" class="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition">
-      Book Free Audit
-    </a>
-  </section>
-
-  <footer class="py-8 text-center text-gray-500 text-sm">
-    © 2026 — All rights reserved
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="text-2xl font-bold mb-4">LP Studio</div>
+          <p class="text-gray-400 text-sm">High-converting landing pages for startups in 7 days.</p>
+        </div>
+        <div>
+          <div class="font-semibold mb-4">Services</div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#services" class="hover:text-white transition">Landing Pages</a></li>
+            <li><a href="#services" class="hover:text-white transition">Redesigns</a></li>
+            <li><a href="#services" class="hover:text-white transition">Multi-page Sites</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-4">Company</div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="demo-projects.html" class="hover:text-white transition">Case Studies</a></li>
+            <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-4">Get Started</div>
+          <a href="https://calendly.com/piercel-moussa/" class="inline-block bg-white text-gray-900 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-sm">
+            Book Free Audit
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+        <p>&copy; 2024 PixelLaunch. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
   <script>
-  const slides = document.querySelectorAll(".slide");
-  const carousel = document.getElementById("carousel");
-  const dotsContainer = document.getElementById("dots");
-  let current = 0;
-  let interval;
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('#carousel > div');
+    const totalSlides = slides.length;
+    const dotsContainer = document.getElementById('dots');
 
-  // Create dots
-  slides.forEach((_, i) => {
-    const dot = document.createElement("button");
-    dot.className =
-      "w-3 h-3 rounded-full bg-gray-300 transition-all duration-300";
-    dot.onclick = () => goToSlide(i);
-    dotsContainer.appendChild(dot);
-  });
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'w-3 h-3 rounded-full transition ' + (i === 0 ? 'bg-gray-900' : 'bg-gray-300');
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
 
-  const dots = dotsContainer.children;
+    function updateSlide() {
+      const carousel = document.getElementById('carousel');
+      carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update dots
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = 'w-3 h-3 rounded-full transition ' + (i === currentSlide ? 'bg-gray-900' : 'bg-gray-300');
+      }
+    }
 
-  function updateCarousel() {
-    carousel.style.transform = `translateX(-${current * 100}%)`;
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlide();
+    }
 
-    [...dots].forEach((dot, i) => {
-      dot.classList.toggle("bg-black", i === current);
-      dot.classList.toggle("bg-gray-300", i !== current);
-    });
-  }
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlide();
+    }
 
-  function nextSlide() {
-    current = (current + 1) % slides.length;
-    updateCarousel();
-  }
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlide();
+    }
 
-  function prevSlide() {
-    current = (current - 1 + slides.length) % slides.length;
-    updateCarousel();
-  }
+    // Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
 
-  function goToSlide(index) {
-    current = index;
-    updateCarousel();
-    resetAutoSlide();
-  }
-
-  function startAutoSlide() {
-    interval = setInterval(nextSlide, 6000);
-  }
-
-  function resetAutoSlide() {
-    clearInterval(interval);
-    startAutoSlide();
-  }
-
-  document.querySelectorAll("button").forEach(btn => {
-    btn.addEventListener("click", resetAutoSlide);
-  });
-
-  startAutoSlide();
-  updateCarousel();
-</script>
-
+    function handleSubmit(event) {
+      event.preventDefault();
+      alert('Thank you for your message! I will get back to you within 24 hours.');
+      event.target.reset();
+    }
+  </script>
 </body>
 </html>
