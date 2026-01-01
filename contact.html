@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Your Free Audit | PixelLaunch - Landing Page Experts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Get a free landing page audit and see how we can increase your conversions by 187%. No commitment required.">
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+    .float { animation: float 3s ease-in-out infinite; }
+    .pulse-ring {
+      animation: pulse-ring 2s ease-out infinite;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .stat-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
+  <!-- Header -->
+  <div id="header-placeholder"></div>
+  
+  <div class="pt-20">
+    <!-- Hero Section -->
+    <section class="pt-20 pb-12 px-6 bg-gradient-to-br from-purple-50 via-white to-pink-50">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block mb-4 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium fade-in-up">
+          ✓ 24 Hour Response Time
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 fade-in-up">
+          Let's Build Your <span class="gradient-text">High-Converting</span> Landing Page
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed fade-in-up">
+          Get a <strong class="text-gray-900">free, personalized audit</strong> of your current page or discuss your new project. No sales pressure, just honest feedback.
+        </p>
+        
+        <!-- Trust Indicators -->
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 mb-8">
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+            <span>7-Day Delivery</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+            <span>No Commitment</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</div>
+            <span>Free Audit Included</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+          
+          <!-- Left Column - Contact Form -->
+          <div class="order-2 md:order-1">
+            <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+              <h2 class="text-3xl font-bold mb-2">Request Your Free Audit</h2>
+              <p class="text-gray-600 mb-6">Fill out the form and I'll review your page within 24 hours</p>
+              
+              <form name="contact-audit" method="POST" action="https://formspree.io/f/mkonyprp" class="space-y-5">
+                <input type="hidden" name="form-name" value="contact-audit">
+                <input type="hidden" name="page" value="contact">
+                
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Your Name *</label>
+                  <input type="text" name="name" required 
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent transition" 
+                    placeholder="John Smith">
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                  <input type="email" name="email" required 
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent transition" 
+                    placeholder="john@company.com">
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Current Website (optional)</label>
+                  <input type="url" name="website" 
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent transition" 
+                    placeholder="https://yoursite.com">
+                  <p class="text-xs text-gray-500 mt-1">Add your URL for a free audit of your current page</p>
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">What Do You Need? *</label>
+                  <select name="project-type" required
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent transition">
+                    <option value="">Select an option...</option>
+                    <option>New Landing Page</option>
+                    <option>Redesign My Current Page</option>
+                    <option>Multi-page Website</option>
+                    <option>Just Want An Audit</option>
+                    <option>Not Sure Yet</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Budget Range</label>
+                  <select name="budget" 
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent transition">
+                    <option value="">Select budget (optional)</option>
+                    <option>$500 - $1,000</option>
+                    <option>$1,000 - $2,500</option>
+                    <option>$2,500+</option>
+                    <option>Not decided yet</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label class="block text-sm font-semibold text-gray-700 mb-2">Tell Me About Your Project *</label>
+                  <textarea name="message" rows="5" required
+                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent transition" 
+                    placeholder="What are your main goals? What problems are you trying to solve?"></textarea>
+                </div>
+                
+                <button type="submit" 
+                  class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition transform hover:scale-105">
+                  Get My Free Audit →
+                </button>
+                
+                <p class="text-xs text-center text-gray-500">
+                  By submitting, you agree to receive emails about your audit. Unsubscribe anytime.
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column - Info & CTAs -->
+          <div class="order-1 md:order-2 space-y-6">
+            
+            <!-- Quick Contact Options -->
+            <div class="bg-gradient-to-br from-purple-600 to-pink-600 text-white p-8 rounded-2xl shadow-xl">
+              <h3 class="text-2xl font-bold mb-4">Prefer to Talk?</h3>
+              <p class="mb-6 opacity-90">Book a 15-minute call and let's discuss your project in real-time</p>
+              <a href="https://calendly.com/piercel-moussa/" target="_blank"
+                class="block w-full bg-white text-purple-600 px-6 py-4 rounded-lg font-bold text-center hover:bg-gray-100 transition">
+                📅 Schedule Free Call
+              </a>
+              <div class="mt-4 pt-4 border-t border-white/20">
+                <p class="text-sm opacity-75 mb-2">Or email me directly:</p>
+                <a href="mailto:piercel.coder2022@gmail.com" class="text-white font-semibold hover:underline">
+                  piercel.coder2022@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- What Happens Next -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <span class="text-2xl">⚡</span>
+                What Happens Next?
+              </h3>
+              <ol class="space-y-4">
+                <li class="flex gap-4">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">1</div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Free Audit Within 24 Hours</div>
+                    <div class="text-sm text-gray-600">I'll review your current page or discuss your new project goals</div>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">2</div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Custom Proposal</div>
+                    <div class="text-sm text-gray-600">Get a detailed plan with timeline, deliverables, and pricing</div>
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">3</div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Launch in 7 Days</div>
+                    <div class="text-sm text-gray-600">Your high-converting landing page goes live</div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Social Proof Stats -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="stat-card bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100">
+                <div class="text-3xl font-bold text-green-600">+187%</div>
+                <div class="text-sm text-gray-600">Avg Conversion Increase</div>
+              </div>
+              <div class="stat-card bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100">
+                <div class="text-3xl font-bold text-blue-600">12+</div>
+                <div class="text-sm text-gray-600">Startups Launched</div>
+              </div>
+            </div>
+
+            <!-- FAQ Quick Links -->
+            <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+              <h3 class="font-bold text-gray-900 mb-3">Quick Questions?</h3>
+              <div class="space-y-2 text-sm">
+                <div class="flex items-start gap-2">
+                  <span class="text-purple-600">→</span>
+                  <div>
+                    <strong>Timeline:</strong> Most projects completed in 7 days
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-purple-600">→</span>
+                  <div>
+                    <strong>Pricing:</strong> Starting at $500 for single pages
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <span class="text-purple-600">→</span>
+                  <div>
+                    <strong>Revisions:</strong> 1-2 rounds included (package dependent)
+                  </div>
+                </div>
+              </div>
+              <a href="index.html#pricing" class="inline-block mt-4 text-purple-600 font-semibold hover:underline">
+                View Full Pricing →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-16 px-6 bg-gradient-to-br from-purple-50 to-pink-50">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-2">Don't Just Take My Word For It</h2>
+          <p class="text-gray-600">See what founders say about working together</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="flex text-yellow-400">★★★★★</div>
+            </div>
+            <p class="text-gray-700 mb-4">"Our signups increased by 234% in the first month. The page is clean, fast, and actually converts visitors into users."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full"></div>
+              <div>
+                <div class="font-semibold text-gray-900">Sarah Chen</div>
+                <div class="text-sm text-gray-600">Founder, SaaS Platform</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="flex text-yellow-400">★★★★★</div>
+            </div>
+            <p class="text-gray-700 mb-4">"Delivered ahead of schedule with exactly what we needed. Finally have a landing page that does our product justice."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full"></div>
+              <div>
+                <div class="font-semibold text-gray-900">Marcus Rodriguez</div>
+                <div class="text-sm text-gray-600">CEO, AI Startup</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alternative Contact Methods -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-2">Choose Your Preferred Way to Connect</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="text-center p-6 border-2 border-gray-200 rounded-xl hover:border-purple-600 hover:shadow-lg transition">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">📧</div>
+            <h3 class="font-bold text-gray-900 mb-2">Email Me</h3>
+            <p class="text-sm text-gray-600 mb-4">Best for detailed project info</p>
+            <a href="mailto:piercel.coder2022@gmail.com" class="text-purple-600 font-semibold hover:underline">
+              Send Email →
+            </a>
+          </div>
+          
+          <div class="text-center p-6 border-2 border-purple-600 rounded-xl shadow-lg">
+            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">📅</div>
+            <h3 class="font-bold text-gray-900 mb-2">Book a Call</h3>
+            <p class="text-sm text-gray-600 mb-4">Fastest way to get started</p>
+            <a href="https://calendly.com/piercel-moussa/" target="_blank" class="text-purple-600 font-semibold hover:underline">
+              Schedule Now →
+            </a>
+          </div>
+          
+          <div class="text-center p-6 border-2 border-gray-200 rounded-xl hover:border-purple-600 hover:shadow-lg transition">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">📝</div>
+            <h3 class="font-bold text-gray-900 mb-2">Fill the Form</h3>
+            <p class="text-sm text-gray-600 mb-4">Get a free audit included</p>
+            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="text-purple-600 font-semibold hover:underline">
+              Go to Form →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 px-6 bg-gradient-to-br from-gray-900 to-black text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">Still Thinking About It?</h2>
+        <p class="text-xl mb-8 opacity-90">
+          The free audit alone has helped startups identify issues costing them thousands in lost conversions. Zero risk, just value.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+          <a href="demo-projects.html" 
+            class="bg-white text-gray-900 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition text-center">
+            View Case Studies
+          </a>
+          <a href="index.html#pricing" 
+            class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 transition text-center border border-white/20">
+            See Pricing
+          </a>
+        </div>
+        <p class="text-sm opacity-75">Join 12+ startups that chose results over mediocre landing pages</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="text-2xl font-bold mb-4">PixelLaunch</div>
+          <p class="text-gray-400 text-sm">High-converting landing pages for startups in 7 days.</p>
+        </div>
+        <div>
+          <div class="font-semibold mb-4">Services</div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="index.html#services" class="hover:text-white transition">Landing Pages</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition">Redesigns</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition">Multi-page Sites</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-4">Company</div>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="demo-projects.html" class="hover:text-white transition">Case Studies</a></li>
+            <li><a href="index.html#pricing" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-4">Get Started</div>
+          <a href="https://calendly.com/piercel-moussa/" class="inline-block bg-white text-gray-900 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-sm">
+            Book Free Audit
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+        <p>&copy; 2026 PixelLaunch. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/header-loader.js"></script>
+</body>
+</html>
