@@ -62,22 +62,8 @@
 
 <body class="bg-gradient-to-br from-gray-50 via-white to-gray-50">
   <!-- Header -->
-  <header class="fixed top-0 w-full glass z-50 shadow-sm">
-    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="/" class="text-xl font-bold">PixelLaunch</a>
-      <div class="hidden md:flex gap-8">
-        <a href="#services" class="nav-link font-medium">Services</a>
-        <a href="demo-projects.html" class="nav-link font-medium">Case Studies</a>
-        <a href="#pricing" class="nav-link font-medium">Pricing</a>
-        <a href="#contact" class="nav-link font-medium">Contact</a>
-      </div>
-      <a href="https://calendly.com/piercel-moussa/" 
-         class="bg-black text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-800 transition text-sm">
-        Book Free Audit
-      </a>
-    </nav>
-  </header>
-
+  <div id="header-placeholder"></div>
+ <div class="pt-20">
   <!-- Hero -->
   <section class="pt-32 pb-20 px-6 max-w-6xl mx-auto">
     <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -97,10 +83,11 @@
              class="bg-black text-white px-8 py-4 rounded-lg font-medium hover:bg-gray-800 transition text-center shadow-lg hover:shadow-xl">
             Book Free Audit →
           </a>
-          <a href="demo-projects.html" 
-             class="border-2 border-gray-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition text-center">
-            View Case Studies
-          </a>
+          <div class="text-center mt-12">
+             <a href="demo-projects.html" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition text-lg">
+            View Full Case Studies →
+            </a>
+          </div>
         </div>
 
         <!-- Social Proof -->
@@ -482,14 +469,14 @@
       <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Boost Your Conversions?</h2>
       <p class="text-xl mb-8 opacity-90">Join 12+ startups that transformed their landing pages into conversion machines</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="https://calendly.com/piercel-moussa/" 
-           class="bg-white text-purple-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition text-lg shadow-xl">
-          Book Your Free Audit
-        </a>
-        <a href="demo-projects.html" 
-           class="border-2 border-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-purple-600 transition text-lg">
-          See Case Studies
-        </a>
+        
+        <!-- In the final CTA section: -->
+          <button onclick="window.location.href='index.html#contact'" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition transform hover:scale-105">
+            Get Your Free Audit →
+          </button>
+          <button onclick="window.location.href='demo-projects.html'" class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/20 transition">
+          View More Case Studies
+       </button>
       </div>
       <p class="mt-6 text-sm opacity-75">No commitment required • 7-day delivery guarantee</p>
     </div>
@@ -612,6 +599,7 @@
         <p>&copy; 2026 PixelLaunch. All rights reserved.</p>
       </div>
     </div>
+    </div>
   </footer>
 
   <script>
@@ -663,5 +651,6 @@
       event.target.reset();
     }
   </script>
+  <script src="./assets/js/header-loader.js"></script>
 </body>
 </html>
