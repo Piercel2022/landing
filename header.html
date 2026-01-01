@@ -1,0 +1,33 @@
+<!-- header.html -->
+<header class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-200">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-bold">PixelLaunch</a>
+    <div class="hidden md:flex gap-8">
+      <a href="index.html#services" class="font-medium hover:text-purple-600 transition">Services</a>
+      <a href="demo-projects.html" class="font-medium hover:text-purple-600 transition">Case Studies</a>
+      <a href="index.html#pricing" class="font-medium hover:text-purple-600 transition">Pricing</a>
+      <a href="index.html#contact" class="font-medium hover:text-purple-600 transition">Contact</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="https://calendly.com/piercel-moussa/" 
+         class="bg-black text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-800 transition text-sm">
+        Book Free Audit
+      </a>
+      <button id="mobileMenuBtn" class="md:hidden text-gray-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <div class="px-6 py-4 space-y-3">
+      <a href="index.html#services" class="block font-medium hover:text-purple-600 transition">Services</a>
+      <a href="demo-projects.html" class="block font-medium hover:text-purple-600 transition">Case Studies</a>
+      <a href="index.html#pricing" class="block font-medium hover:text-purple-600 transition">Pricing</a>
+      <a href="index.html#contact" class="block font-medium hover:text-purple-600 transition">Contact</a>
+    </div>
+  </div>
+</header>
