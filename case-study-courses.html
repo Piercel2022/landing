@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster - Master Full-Stack Development with AI & Gamification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 24px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .course-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold gradient-text">CodeMaster</div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#courses" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Courses</a>
+                    <a href="#features" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Features</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Testimonials</a>
+                    <a href="#pricing" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Pricing</a>
+                    <a href="#faq" class="nav-link text-gray-700 hover:text-purple-600 font-medium">FAQ</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-700 font-medium hover:text-purple-600">Login</button>
+                    <button class="gradient-bg text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition">Sign Up</button>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#courses" class="block text-gray-700 hover:text-purple-600 font-medium">Courses</a>
+                <a href="#features" class="block text-gray-700 hover:text-purple-600 font-medium">Features</a>
+                <a href="#testimonials" class="block text-gray-700 hover:text-purple-600 font-medium">Testimonials</a>
+                <a href="#pricing" class="block text-gray-700 hover:text-purple-600 font-medium">Pricing</a>
+                <a href="#faq" class="block text-gray-700 hover:text-purple-600 font-medium">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-6">
+                        🚀 Join 50,000+ Developers Worldwide
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Master Full-Stack Development with AI-Powered Learning</h1>
+                    <p class="text-xl mb-8 text-purple-100">Learn coding with personalized AI assistance, gamified challenges, and real-world projects. Land your dream tech job in 3-6 months.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">Start Learning Free</button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition">View Course Catalog</button>
+                    </div>
+                    <div class="flex items-center gap-8 mt-8">
+                        <div>
+                            <div class="text-3xl font-bold">50K+</div>
+                            <div class="text-purple-200">Active Students</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold">4.9/5</div>
+                            <div class="text-purple-200">Student Rating</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold">200+</div>
+                            <div class="text-purple-200">Courses</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block float-animation">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 bg-white/20 rounded-lg p-4">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-2xl">💡</div>
+                                <div>
+                                    <div class="font-semibold">AI Assistant Available</div>
+                                    <div class="text-sm text-purple-200">24/7 Personalized Help</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/20 rounded-lg p-4">
+                                <div class="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center text-2xl">🏆</div>
+                                <div>
+                                    <div class="font-semibold">Gamified Learning</div>
+                                    <div class="text-sm text-purple-200">Earn Points & Badges</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white/20 rounded-lg p-4">
+                                <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-2xl">💼</div>
+                                <div>
+                                    <div class="font-semibold">Career Support</div>
+                                    <div class="text-sm text-purple-200">Job Placement Assistance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-gray-600 mb-8 font-medium">Trusted by students who now work at</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 opacity-60">
+                <div class="text-3xl font-bold text-gray-800">Google</div>
+                <div class="text-3xl font-bold text-gray-800">Microsoft</div>
+                <div class="text-3xl font-bold text-gray-800">Amazon</div>
+                <div class="text-3xl font-bold text-gray-800">Meta</div>
+                <div class="text-3xl font-bold text-gray-800">Apple</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose CodeMaster?</h2>
+                <p class="text-xl text-gray-600">Everything you need to become a successful developer</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-2xl">
+                    <div class="feature-icon bg-purple-100 text-purple-600 mb-6">🤖</div>
+                    <h3 class="text-2xl font-bold mb-4">AI-Powered Assistant</h3>
+                    <p class="text-gray-600">Get instant help 24/7 with our intelligent AI tutor. Like having a personal mentor always available to explain complex concepts and debug your code.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-2xl">
+                    <div class="feature-icon bg-green-100 text-green-600 mb-6">🎮</div>
+                    <h3 class="text-2xl font-bold mb-4">Gamified Challenges</h3>
+                    <p class="text-gray-600">Compete with peers, earn points, and climb the leaderboard. Make learning fun and stay motivated with our interactive challenge system.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-2xl">
+                    <div class="feature-icon bg-blue-100 text-blue-600 mb-6">💻</div>
+                    <h3 class="text-2xl font-bold mb-4">Real-World Projects</h3>
+                    <p class="text-gray-600">Build practical applications that mirror industry scenarios. Create a portfolio that showcases your skills to potential employers.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-2xl">
+                    <div class="feature-icon bg-yellow-100 text-yellow-600 mb-6">👨‍🏫</div>
+                    <h3 class="text-2xl font-bold mb-4">Expert Mentorship</h3>
+                    <p class="text-gray-600">Learn from industry professionals with years of experience. Get 1-on-1 guidance and valuable insights to accelerate your learning.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-2xl">
+                    <div class="feature-icon bg-red-100 text-red-600 mb-6">⏰</div>
+                    <h3 class="text-2xl font-bold mb-4">Self-Paced Learning</h3>
+                    <p class="text-gray-600">Study at your own pace with a flexible curriculum. Balance learning with your job, family, or other commitments.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-2xl">
+                    <div class="feature-icon bg-indigo-100 text-indigo-600 mb-6">🎓</div>
+                    <h3 class="text-2xl font-bold mb-4">Industry Certificate</h3>
+                    <p class="text-gray-600">Receive a recognized certification upon completion. Boost your resume and LinkedIn profile with credentials that matter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Popular Courses</h2>
+                <p class="text-xl text-gray-600">Master in-demand skills with our comprehensive curriculum</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-48 flex items-center justify-center text-white text-6xl">
+                        🌐
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="course-badge bg-blue-100 text-blue-700">Beginner</span>
+                            <span class="course-badge bg-green-100 text-green-700">Most Popular</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Full-Stack Web Development</h3>
+                        <p class="text-gray-600 mb-4">Master HTML, CSS, JavaScript, React, Node.js, and databases. Build complete web applications from scratch.</p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 mb-4">
+                            <span>⏱️ 3-6 months</span>
+                            <span>📚 120 lessons</span>
+                            <span>⭐ 4.9 (8.2K)</span>
+                        </div>
+                        <button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <div class="bg-gradient-to-r from-yellow-500 to-orange-600 h-48 flex items-center justify-center text-white text-6xl">
+                        🐍
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="course-badge bg-yellow-100 text-yellow-700">Beginner</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Python Programming</h3>
+                        <p class="text-gray-600 mb-4">Learn Python from basics to advanced. Cover data structures, OOP, automation, and data science fundamentals.</p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 mb-4">
+                            <span>⏱️ 2-4 months</span>
+                            <span>📚 90 lessons</span>
+                            <span>⭐ 4.8 (6.5K)</span>
+                        </div>
+                        <button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-200">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-48 flex items-center justify-center text-white text-6xl">
+                        📱
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="course-badge bg-purple-100 text-purple-700">Intermediate</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Mobile App Development</h3>
+                        <p class="text-gray-600 mb-4">Build iOS and Android apps with React Native. Create cross-platform mobile applications efficiently.</p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 mb-4">
+                            <span>⏱️ 3-5 months</span>
+                            <span>📚 100 lessons</span>
+                            <span>⭐ 4.9 (5.1K)</span>
+                        </div>
+                        <button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path Section -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Your Learning Journey</h2>
+                <p class="text-xl text-purple-100">A structured path from beginner to job-ready developer</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-4xl mx-auto mb-4">1️⃣</div>
+                    <h3 class="text-xl font-bold mb-2">Foundation</h3>
+                    <p class="text-purple-100">Start with basics and build strong fundamentals</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-4xl mx-auto mb-4">2️⃣</div>
+                    <h3 class="text-xl font-bold mb-2">Practice</h3>
+                    <p class="text-purple-100">Work on hands-on projects and coding challenges</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-4xl mx-auto mb-4">3️⃣</div>
+                    <h3 class="text-xl font-bold mb-2">Build Portfolio</h3>
+                    <p class="text-purple-100">Create real-world applications for your portfolio</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-4xl mx-auto mb-4">4️⃣</div>
+                    <h3 class="text-xl font-bold mb-2">Land Job</h3>
+                    <p class="text-purple-100">Get career support and land your dream tech job</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Student Success Stories</h2>
+                <p class="text-xl text-gray-600">Thousands have launched their tech careers with CodeMaster</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The AI assistant is a game-changer! It's like having a personal tutor available 24/7. I finally understood complex Python concepts I struggled with for months."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">SM</div>
+                        <div>
+                            <div class="font-semibold">Sarah Martinez</div>
+                            <div class="text-sm text-gray-600">Python Developer at TechCorp</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"I landed my first web dev job thanks to the Full-Stack course. The projects were incredibly practical and the certificate added real value to my resume."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">JC</div>
+                        <div>
+                            <div class="font-semibold">James Chen</div>
+                            <div class="text-sm text-gray-600">Software Engineer at Solutions Inc</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The gamified challenges made learning fun and competitive. Climbing the leaderboard was so motivating. Highly recommend this platform!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold">EP</div>
+                        <div>
+                            <div class="font-semibold">Emily Patel</div>
+                            <div class="text-sm text-gray-600">Full-Stack Developer at StartupHub</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stat-number gradient-text mb-2">50K+</div>
+                    <p class="text-gray-600 font-medium">Active Students</p>
+                </div>
+                <div>
+                    <div class="stat-number gradient-text mb-2">95%</div>
+                    <p class="text-gray-600 font-medium">Job Placement Rate</p>
+                </div>
+                <div>
+                    <div class="stat-number gradient-text mb-2">200+</div>
+                    <p class="text-gray-600 font-medium">Courses Available</p>
+                </div>
+                <div>
+                    <div class="stat-number gradient-text mb-2">24/7</div>
+                    <p class="text-gray-600 font-medium">AI Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Choose Your Plan</h2>
+                <p class="text-xl text-gray-600">Flexible pricing for every learning goal</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-2">Free</h3>
+                    <div class="text-4xl font-bold mb-6">$0<span class="text-lg text-gray-600 font-normal">/month</span></div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Access to 10 free courses</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Community support</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Basic coding challenges</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gray-300 text-xl">✗</span>
+                            <span class="text-gray-400">AI assistant access</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-gray-300 text-xl">✗</span>
+                            <span class="text-gray-400">Certificate of completion</span>
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition">Get Started</button>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 border-2 border-purple-600 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Pro</h3>
+                    <div class="text-4xl font-bold mb-6">$49<span class="text-lg text-gray-600 font-normal">/month</span></div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">All courses & content</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">24/7 AI assistant</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">All gamified challenges</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">
+                            ✓</span>
+                            <span class="text-gray-700">Certificate of completion</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Priority support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Start Free Trial</button>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-6">$99<span class="text-lg text-gray-600 font-normal">/month</span></div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Everything in Pro</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">1-on-1 mentorship</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Job placement assistance</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Resume & interview prep</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700">Exclusive career events</span>
+                        </li>
+                    </ul>
+                    <button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Got questions? We've got answers</p>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-gray-50 rounded-xl p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">Do I need prior coding experience?</h3>
+                        <span class="text-2xl text-gray-400">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-4">No! Our courses are designed for complete beginners. We start with the fundamentals and gradually progress to advanced topics. Our AI assistant is always available to help you understand any concept.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">How long does it take to complete a course?</h3>
+                        <span class="text-2xl text-gray-400">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-4">It depends on your pace and schedule. Most students complete our Full-Stack course in 3-6 months by dedicating 10-15 hours per week. Since our courses are self-paced, you can go faster or slower based on your needs.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">What makes CodeMaster different from other platforms?</h3>
+                        <span class="text-2xl text-gray-400">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-4">We combine AI-powered personalized learning with gamification to make coding fun and effective. Our 24/7 AI assistant provides instant help, while our gamified challenges keep you motivated. Plus, we offer real mentorship and career support.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">Is the certificate recognized by employers?</h3>
+                        <span class="text-2xl text-gray-400">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-4">Yes! Our certificates are recognized across the tech industry. Many of our graduates have successfully used them to land jobs at top companies like Google, Microsoft, and Amazon. What matters most to employers is the practical skills you'll gain.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">Can I get a refund if I'm not satisfied?</h3>
+                        <span class="text-2xl text-gray-400">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-4">Absolutely! We offer a 30-day money-back guarantee. If you're not completely satisfied with your learning experience, contact our support team for a full refund—no questions asked.</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 cursor-pointer hover:bg-gray-100 transition">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold">Do you offer job placement assistance?</h3>
+                        <span class="text-2xl text-gray-400">+</span>
+                    </div>
+                    <p class="text-gray-600 mt-4">Yes! Our Enterprise plan includes comprehensive job placement support, including resume reviews, mock interviews, portfolio guidance, and direct connections to hiring partners. We have a 95% job placement rate for students who complete the program.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Coding Journey?</h2>
+            <p class="text-xl text-purple-100 mb-8">Join 50,000+ students learning to code with AI-powered assistance</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition">Start Learning Free</button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition">Schedule a Demo</button>
+            </div>
+            <p class="text-purple-200 mt-6">No credit card required • Cancel anytime • 30-day money-back guarantee</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="text-2xl font-bold text-white mb-4">CodeMaster</div>
+                    <p class="text-gray-400 mb-4">Master full-stack development with AI-powered learning and gamification.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition">
+                            <span class="text-xl">𝕏</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition">
+                            <span class="text-xl">in</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition">
+                            <span class="text-xl">📘</span>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition">
+                            <span class="text-xl">📷</span>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Courses</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-purple-400 transition">Full-Stack Development</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Python Programming</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Mobile App Development</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Data Science</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Machine Learning</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-purple-400 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Press</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Partners</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-purple-400 transition">Help Center</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2026 CodeMaster. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition text-sm">Privacy</a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition text-sm">Terms</a>
+                    <a href="#" class="text-gray-400 hover:text-purple-400 transition text-sm">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('#faq .cursor-pointer');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('p');
+                const icon = item.querySelector('span:last-child');
+                
+                answer.classList.toggle('hidden');
+                icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+            });
+            
+            // Initially hide all answers
+            const answer = item.querySelector('p');
+            answer.classList.add('hidden');
+        });
+
+        // Navbar Background on Scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
