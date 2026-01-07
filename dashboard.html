@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - CodeMaster</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+* {
+font-family: 'Inter', sans-serif;
+}
+.gradient-bg {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.gradient-text {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.card-hover {
+transition: all 0.3s ease;
+}
+.card-hover:hover {
+transform: translateY(-4px);
+box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+.progress-bar {
+transition: width 1s ease-out;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+animation: fadeIn 0.5s ease-out forwards;
+}
+.sidebar-link {
+transition: all 0.2s ease;
+}
+.sidebar-link:hover {
+background: rgba(102, 126, 234, 0.1);
+transform: translateX(4px);
+}
+.sidebar-link.active {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<a href="#" class="text-2xl font-bold gradient-text">CodeMaster</a>
+<div class="flex items-center gap-6">
+<div class="relative">
+<input type="search" placeholder="Search courses..." class="pl-10 pr-4 py-2 border-2 border-gray-200 rounded-lg w-64 outline-none focus:border-purple-500 transition">
+<svg class="w-5 h-5 text-gray-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+</svg>
+</div>
+<button class="relative p-2 hover:bg-gray-100 rounded-lg transition">
+<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+</svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 cursor-pointer group">
+<img src="https://ui-avatars.com/api/?name=User&background=667eea&color=fff" alt="Profile" class="w-10 h-10 rounded-full border-2 border-purple-200">
+<div class="hidden md:block">
+<p class="font-semibold text-sm" id="userName">Welcome!</p>
+<p class="text-xs text-gray-500">Student</p>
+</div>
+<svg class="w-4 h-4 text-gray-600 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-16 flex">
+<!-- Sidebar -->
+<aside class="hidden lg:block w-64 bg-white h-screen sticky top-16 border-r border-gray-200">
+<nav class="p-4 space-y-2">
+<a href="#" class="sidebar-link active flex items-center gap-3 px-4 py-3 rounded-lg">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+</svg>
+<span class="font-semibold">Dashboard</span>
+</a>
+<a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+</svg>
+<span class="font-semibold">My Courses</span>
+</a>
+<a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+</svg>
+<span class="font-semibold">Progress</span>
+</a>
+<a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+</svg>
+<span class="font-semibold">AI Assistant</span>
+<span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">New</span>
+</a>
+<a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+</svg>
+<span class="font-semibold">Certificates</span>
+</a>
+<a href="#" class="sidebar-link flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+</svg>
+<span class="font-semibold">Settings</span>
+</a>
+</nav>
+</aside>
+
+<!-- Dashboard Content -->
+<main class="flex-1 p-6 lg:p-8 max-w-7xl">
+<!-- Welcome Section -->
+<div class="mb-8 animate-fade-in">
+<h1 class="text-3xl font-bold mb-2">Welcome back, <span id="displayName">Student</span>! 👋</h1>
+<p class="text-gray-600">Continue your learning journey and achieve your goals</p>
+</div>
+
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-xl p-6 shadow-sm card-hover animate-fade-in" style="animation-delay: 0.1s">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+<svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+</svg>
+</div>
+<span class="text-green-600 text-sm font-semibold">+2 this week</span>
+</div>
+<p class="text-gray-600 text-sm mb-1">Courses Enrolled</p>
+<p class="text-3xl font-bold">12</p>
+</div>
+
+<div class="bg-white rounded-xl p-6 shadow-sm card-hover animate-fade-in" style="animation-delay: 0.2s">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+</svg>
+</div>
+<span class="text-blue-600 text-sm font-semibold">8h 24m</span>
+</div>
+<p class="text-gray-600 text-sm mb-1">Learning Streak</p>
+<p class="text-3xl font-bold">15 Days 🔥</p>
+</div>
+
+<div class="bg-white rounded-xl p-6 shadow-sm card-hover animate-fade-in" style="animation-delay: 0.3s">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+<svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+</div>
+<span class="text-green-600 text-sm font-semibold">92%</span>
+</div>
+<p class="text-gray-600 text-sm mb-1">Completed Lessons</p>
+<p class="text-3xl font-bold">147</p>
+</div>
+
+<div class="bg-white rounded-xl p-6 shadow-sm card-hover animate-fade-in" style="animation-delay: 0.4s">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+<svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+</svg>
+</div>
+<span class="text-purple-600 text-sm font-semibold">3 earned</span>
+</div>
+<p class="text-gray-600 text-sm mb-1">Certificates</p>
+<p class="text-3xl font-bold">8</p>
+</div>
+</div>
+
+<!-- Continue Learning -->
+<div class="mb-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold">Continue Learning</h2>
+<button class="text-purple-600 font-semibold hover:text-purple-700">View All →</button>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="bg-white rounded-xl shadow-sm card-hover p-6">
+<div class="flex gap-4 mb-4">
+<img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=200&h=120&fit=crop" alt="Course" class="w-24 h-24 rounded-lg object-cover">
+<div class="flex-1">
+<span class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">In Progress</span>
+<h3 class="font-bold text-lg mt-2 mb-1">JavaScript Mastery</h3>
+<p class="text-sm text-gray-600">Advanced concepts and patterns</p>
+</div>
+</div>
+<div class="mb-3">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-gray-600">Progress</span>
+<span class="font-semibold text-purple-600">67%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="progress-bar bg-gradient-to-r from-purple-500 to-purple-700 h-2 rounded-full" style="width: 67%"></div>
+</div>
+</div>
+<button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Continue Learning</button>
+</div>
+
+<div class="bg-white rounded-xl shadow-sm card-hover p-6">
+<div class="flex gap-4 mb-4">
+<img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=200&h=120&fit=crop" alt="Course" class="w-24 h-24 rounded-lg object-cover">
+<div class="flex-1">
+<span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">In Progress</span>
+<h3 class="font-bold text-lg mt-2 mb-1">Python for Data Science</h3>
+<p class="text-sm text-gray-600">Analytics and visualization</p>
+</div>
+</div>
+<div class="mb-3">
+<div class="flex justify-between text-sm mb-2">
+<span class="text-gray-600">Progress</span>
+<span class="font-semibold text-blue-600">42%</span>
+</div>
+<div class="w-full bg-gray-200 rounded-full h-2">
+<div class="progress-bar bg-gradient-to-r from-blue-500 to-blue-700 h-2 rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">Continue Learning</button>
+</div>
+</div>
+</div>
+
+<!-- Recommended Courses -->
+<div class="mb-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl font-bold">Recommended For You</h2>
+<button class="text-purple-600 font-semibold hover:text-purple-700">View All →</button>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-xl shadow-sm card-hover overflow-hidden">
+<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=200&fit=crop" alt="Course" class="w-full h-48 object-cover">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">Beginner</span>
+<div class="flex items-center text-yellow-500 text-sm">
+<span>⭐ 4.8</span>
+<span class="text-gray-500 ml-1">(2.3k)</span>
+</div>
+</div>
+<h3 class="font-bold text-lg mb-2">Full Stack Web Development</h3>
+<p class="text-gray-600 text-sm mb-4">Build modern web apps from scratch</p>
+<div class="flex items-center justify-between text-sm mb-4">
+<span class="text-gray-600">⏱ 42 hours</span>
+<span class="text-gray-600">📚 156 lessons</span>
+</div>
+<button class="w-full border-2 border-purple-600 text-purple-600 py-2 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition">Enroll Now</button>
+</div>
+</div>
+
+<div class="bg-white rounded-xl shadow-sm card-hover overflow-hidden">
+<img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=200&fit=crop" alt="Course" class="w-full h-48 object-cover">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">Intermediate</span>
+<div class="flex items-center text-yellow-500 text-sm">
+<span>⭐ 4.9</span>
+<span class="text-gray-500 ml-1">(1.8k)</span>
+</div>
+</div>
+<h3 class="font-bold text-lg mb-2">Machine Learning Basics</h3>
+<p class="text-gray-600 text-sm mb-4">Introduction to ML algorithms</p>
+<div class="flex items-center justify-between text-sm mb-4">
+<span class="text-gray-600">⏱ 36 hours</span>
+<span class="text-gray-600">📚 128 lessons</span>
+</div>
+<button class="w-full border-2 border-purple-600 text-purple-600 py-2 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition">Enroll Now</button>
+</div>
+</div>
+
+<div class="bg-white rounded-xl shadow-sm card-hover overflow-hidden">
+<img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="Course" class="w-full h-48 object-cover">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Advanced</span>
+<div class="flex items-center text-yellow-500 text-sm">
+<span>⭐ 4.9</span>
+<span class="text-gray-500 ml-1">(956)</span>
+</div>
+</div>
+<h3 class="font-bold text-lg mb-2">Cloud Architecture AWS</h3>
+<p class="text-gray-600 text-sm mb-4">Design scalable cloud solutions</p>
+<div class="flex items-center justify-between text-sm mb-4">
+<span class="text-gray-600">⏱ 28 hours</span>
+<span class="text-gray-600">📚 98 lessons</span>
+</div>
+<button class="w-full border-2 border-purple-600 text-purple-600 py-2 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition">Enroll Now</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- AI Assistant CTA -->
+<div class="bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl p-8 text-white mb-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="text-3xl">🤖</span>
+<span class="bg-green-400 text-green-900 text-xs px-2 py-1 rounded-full font-semibold">NEW</span>
+</div>
+<h2 class="text-2xl font-bold mb-2">Meet Your AI Learning Assistant</h2>
+<p class="text-purple-100 mb-4">Get instant help, explanations, and personalized guidance 24/7. Ask questions, debug code, and accelerate your learning journey.</p>
+<ul class="space-y-2 mb-6">
+<li class="flex items-center gap-2">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+</svg>
+<span>Instant answers to coding questions</span>
+</li>
+<li class="flex items-center gap-2">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+</svg>
+<span>Code review and debugging help</span>
+</li>
+<li class="flex items-center gap-2">
+<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+</svg>
+<span>Personalized learning recommendations</span>
+</li>
+</ul>
+</div>
+<div class="flex-shrink-0">
+<button class="bg-white text-purple-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-purple-50 transition shadow-xl">Start Chatting Now →</button>
+</div>
+</div>
+</div>
+
+<!-- Recent Activity -->
+<div>
+<h2 class="text-2xl font-bold mb-6">Recent Activity</h2>
+<div class="bg-white rounded-xl shadow-sm p-6">
+<div class="space-y-4">
+<div class="flex items-start gap-4 pb-4 border-b border-gray-100">
+<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+<svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+</svg>
+<svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex-1">
+<p class="font-semibold">Completed: JavaScript Arrays Module</p>
+<p class="text-sm text-gray-600">You earned 50 XP • 2 hours ago</p>
+</div>
+</div>
+
+<div class="flex items-start gap-4 pb-4 border-b border-gray-100">
+<div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+<svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
+</svg>
+</div>
+<div class="flex-1">
+<p class="font-semibold">Started: Python for Data Science</p>
+<p class="text-sm text-gray-600">New course enrolled • 1 day ago</p>
+</div>
+</div>
+
+<div class="flex items-start gap-4 pb-4 border-b border-gray-100">
+<div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+<svg class="w-5 h-5 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+</svg>
+</div>
+<div class="flex-1">
+<p class="font-semibold">Achievement Unlocked: Speed Learner</p>
+<p class="text-sm text-gray-600">Complete 5 lessons in one day • 3 days ago</p>
+</div>
+</div>
+
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+<svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+<path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+</svg>
+</div>
+<div class="flex-1">
+<p class="font-semibold">Earned Certificate: JavaScript Fundamentals</p>
+<p class="text-sm text-gray-600">Completed with 95% score • 1 week ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+// Get user data from localStorage or default
+const userName = localStorage.getItem('userName') || 'Student';
+document.getElementById('userName').textContent = `Welcome, ${userName}!`;
+document.getElementById('displayName').textContent = userName;
+
+// Update avatar
+const avatar = document.querySelector('img[alt="Profile"]');
+avatar.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(userName)}&background=667eea&color=fff`;
+
+// Animate progress bars on load
+setTimeout(() => {
+const progressBars = document.querySelectorAll('.progress-bar');
+progressBars.forEach(bar => {
+const width = bar.style.width;
+bar.style.width = '0%';
+setTimeout(() => {
+bar.style.width = width;
+}, 100);
+});
+}, 500);
+</script>
+</body>
+</html>
