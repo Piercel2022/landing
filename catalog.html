@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Catalog - CodeMaster</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .catalog-header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .catalog-header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .catalog-header p {
+            font-size: 20px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .filter-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .course-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .course-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+        }
+
+        .course-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .course-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .course-description {
+            font-size: 14px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .course-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .stat-icon {
+            font-size: 20px;
+        }
+
+        .stat-label {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .course-features {
+            margin-bottom: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .feature-item::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .course-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .price-period {
+            font-size: 14px;
+            color: #999;
+            font-weight: normal;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 20px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .catalog-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">CodeMaster</div>
+            <div class="header-actions">
+                <a href="https://pixellaunch.netlify.app/case-study-courses" class="btn btn-secondary">← Back to Home</a>
+                <button class="btn btn-primary">Start Free Trial</button>
+            </div>
+        </header>
+
+        <div class="catalog-header">
+            <h1>📚 Complete Course Catalog</h1>
+            <p>Choose from 200+ courses designed to take you from beginner to professional. All courses include AI-powered assistance, hands-on projects, and industry-recognized certificates.</p>
+        </div>
+
+        <div class="filter-section">
+            <div class="filters">
+                <strong>Filter by:</strong>
+                <div class="filter-group">
+                    <button class="filter-btn active">All Courses</button>
+                    <button class="filter-btn">Beginner</button>
+                    <button class="filter-btn">Intermediate</button>
+                    <button class="filter-btn">Advanced</button>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn">Web Development</button>
+                    <button class="filter-btn">Mobile</button>
+                    <button class="filter-btn">Data Science</button>
+                    <button class="filter-btn">AI/ML</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <span class="course-badge">Most Popular</span>
+                    <div class="course-icon">🌐</div>
+                    <div class="course-title">Full-Stack Web Development</div>
+                    <div class="course-description">Master HTML, CSS, JavaScript, React, Node.js, and MongoDB. Build complete web applications from scratch.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">3-6 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">120 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Beginner</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">10-15 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">24/7 AI Assistant Support</div>
+                        <div class="feature-item">15+ Real-World Projects</div>
+                        <div class="feature-item">Career Support & Job Placement</div>
+                        <div class="feature-item">Industry-Recognized Certificate</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.9 (8.2K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🐍</div>
+                    <div class="course-title">Python Programming Masterclass</div>
+                    <div class="course-description">Learn Python from basics to advanced. Cover data structures, OOP, automation, and data science fundamentals.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">2-4 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">90 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Beginner</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">8-12 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Hands-on Python Projects</div>
+                        <div class="feature-item">Automation Scripts & Tools</div>
+                        <div class="feature-item">Data Analysis with Pandas</div>
+                        <div class="feature-item">Web Scraping Techniques</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.8 (6.5K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">📱</div>
+                    <div class="course-title">Mobile App Development</div>
+                    <div class="course-description">Build iOS and Android apps with React Native. Create cross-platform mobile applications efficiently.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">3-5 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">100 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Intermediate</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">12-15 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">React Native Fundamentals</div>
+                        <div class="feature-item">5+ Real Mobile Apps</div>
+                        <div class="feature-item">App Store Deployment</div>
+                        <div class="feature-item">Native Features Integration</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.9 (5.1K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <span class="course-badge">New</span>
+                    <div class="course-icon">🤖</div>
+                    <div class="course-title">Machine Learning & AI</div>
+                    <div class="course-description">Master ML algorithms, deep learning, and neural networks. Build intelligent applications with TensorFlow and PyTorch.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">4-6 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">140 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">15-20 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Deep Learning with TensorFlow</div>
+                        <div class="feature-item">Computer Vision Projects</div>
+                        <div class="feature-item">Natural Language Processing</div>
+                        <div class="feature-item">Real-World ML Models</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.9 (3.8K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">📊</div>
+                    <div class="course-title">Data Science with Python</div>
+                    <div class="course-description">Learn data analysis, visualization, and statistical modeling. Work with real datasets and build predictive models.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">3-5 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">110 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Intermediate</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">10-15 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Pandas & NumPy Mastery</div>
+                        <div class="feature-item">Data Visualization (Matplotlib, Seaborn)</div>
+                        <div class="feature-item">Statistical Analysis & Modeling</div>
+                        <div class="feature-item">10+ Data Science Projects</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.8 (4.7K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 6 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">☁️</div>
+                    <div class="course-title">Cloud Computing & DevOps</div>
+                    <div class="course-description">Master AWS, Docker, Kubernetes, and CI/CD pipelines. Learn modern cloud infrastructure and deployment strategies.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">3-4 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">95 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Intermediate</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">12-15 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">AWS Cloud Services Mastery</div>
+                        <div class="feature-item">Docker & Kubernetes</div>
+                        <div class="feature-item">CI/CD Pipeline Setup</div>
+                        <div class="feature-item">Infrastructure as Code</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.9 (3.2K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 7 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🔒</div>
+                    <div class="course-title">Cybersecurity Fundamentals</div>
+                    <div class="course-description">Learn ethical hacking, network security, and threat detection. Prepare for CompTIA Security+ certification.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">4-5 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">105 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Intermediate</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">10-12 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Ethical Hacking Techniques</div>
+                        <div class="feature-item">Network Security Protocols</div>
+                        <div class="feature-item">Penetration Testing</div>
+                        <div class="feature-item">Security+ Exam Prep</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.8 (2.9K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 8 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🎨</div>
+                    <div class="course-title">UI/UX Design & Figma</div>
+                    <div class="course-description">Master user interface and experience design. Learn Figma, design systems, and create stunning digital products.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">2-3 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">75 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Beginner</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">8-10 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Figma Pro Techniques</div>
+                        <div class="feature-item">Design Systems & Components</div>
+                        <div class="feature-item">User Research & Testing</div>
+                        <div class="feature-item">Portfolio-Ready Projects</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.9 (5.6K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 9 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">⚡</div>
+                    <div class="course-title">JavaScript Advanced Concepts</div>
+                    <div class="course-description">Deep dive into JavaScript: async programming, closures, prototypes, and modern ES6+ features.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">2-3 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">85 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">10-12 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Async/Await & Promises</div>
+                        <div class="feature-item">Functional Programming</div>
+                        <div class="feature-item">Design Patterns</div>
+                        <div class="feature-item">Performance Optimization</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.9 (4.3K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 10 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🗄️</div>
+                    <div class="course-title">Database Design & SQL</div>
+                    <div class="course-description">Master relational databases, SQL queries, and database optimization. Learn MySQL, PostgreSQL, and MongoDB.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">2-4 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">80 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Intermediate</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">8-10 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Advanced SQL Queries</div>
+                        <div class="feature-item">Database Normalization</div>
+                        <div class="feature-item">NoSQL with MongoDB</div>
+                        <div class="feature-item">Performance Tuning</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.8 (3.5K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 11 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🎮</div>
+                    <div class="course-title">Game Development with Unity</div>
+                    <div class="course-description">Create 2D and 3D games with Unity and C#. Learn game mechanics, physics, and publish to multiple platforms.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">4-6 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">115 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Intermediate</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">12-15 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Unity Engine Mastery</div>
+                        <div class="feature-item">C# Programming for Games</div>
+                        <div class="feature-item">5+ Complete Games</div>
+                        <div class="feature-item">Multi-Platform Publishing</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.9 (4.1K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course 12 -->
+            <div class="course-card">
+                <div class="course-header">
+                    <div class="course-icon">🔗</div>
+                    <div class="course-title">Blockchain & Web3 Development</div>
+                    <div class="course-description">Learn blockchain technology, smart contracts with Solidity, and decentralized application development.</div>
+                </div>
+                <div class="course-body">
+                    <div class="course-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <div>
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">3-5 months</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📚</span>
+                            <div>
+                                <div class="stat-label">Lessons</div>
+                                <div class="stat-value">100 lessons</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🎯</span>
+                            <div>
+                                <div class="stat-label">Level</div>
+                                <div class="stat-value">Advanced</div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏰</span>
+                            <div>
+                                <div class="stat-label">Weekly Time</div>
+                                <div class="stat-value">12-18 hrs/week</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-features">
+                        <div class="feature-item">Smart Contract Development</div>
+                        <div class="feature-item">Ethereum & Solidity</div>
+                        <div class="feature-item">DApp Architecture</div>
+                        <div class="feature-item">NFT & DeFi Projects</div>
+                    </div>
+                    <div class="rating">
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                        <span class="rating-text">4.8 (2.7K reviews)</span>
+                    </div>
+                    <div class="course-footer">
+                        <div class="course-price">$49<span class="price-period">/mo</span></div>
+                        <button class="btn btn-primary">View Course</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta-section">
+            <h2>🚀 Ready to Start Your Learning Journey?</h2>
+            <p>Join over 500,000 students who have transformed their careers with CodeMaster. Get unlimited access to all courses with a 7-day free trial.</p>
+            <button class="btn btn-primary">Start Free Trial →</button>
+        </div>
+    </div>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const courseCards = document.querySelectorAll('.course-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons in the same group
+                const parentGroup = btn.parentElement;
+                if (parentGroup.classList.contains('filter-group')) {
+                    parentGroup.querySelectorAll('.filter-btn').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                }
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Simple filter logic (can be expanded)
+                const filterText = btn.textContent.toLowerCase();
+                
+                courseCards.forEach(card => {
+                    if (filterText === 'all courses') {
+                        card.style.display = 'flex';
+                    } else {
+                        const cardText = card.textContent.toLowerCase();
+                        if (cardText.includes(filterText)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // View Course button functionality
+        const viewBtns = document.querySelectorAll('.course-footer .btn-primary');
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Course details page would open here. This is a demo.');
+            });
+        });
+
+        // Start Free Trial functionality
+        const trialBtns = document.querySelectorAll('.btn-primary');
+        trialBtns.forEach(btn => {
+            if (btn.textContent.includes('Start Free Trial')) {
+                btn.addEventListener('click', () => {
+                    alert('Sign up modal would open here. This is a demo.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
