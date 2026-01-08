@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Full-Stack Development - Get Job-Ready in 90 Days | CodeMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .trust-badge {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .sticky-cta {
+            position: sticky;
+            top: 90px;
+            z-index: 40;
+        }
+        
+        .video-placeholder {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .benefit-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .scarcity-bar {
+            background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .module-accordion {
+            transition: all 0.3s ease;
+        }
+        
+        .module-accordion.active {
+            background: #f9fafb;
+        }
+        
+        .module-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .module-content.active {
+            max-height: 500px;
+        }
+        
+        .social-proof-scroll {
+            display: flex;
+            overflow-x: hidden;
+            gap: 1rem;
+        }
+        
+        .social-proof-item {
+            animation: scroll-left 30s linear infinite;
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .guarantee-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guarantee-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .sticky-cta {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Fixed Navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">CodeMaster</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-purple-600 font-medium transition">Home</a>
+                    <a href="#curriculum" class="text-gray-700 hover:text-purple-600 font-medium transition">Curriculum</a>
+                    <a href="#reviews" class="text-gray-700 hover:text-purple-600 font-medium transition">Reviews</a>
+                    <a href="#faq" class="text-gray-700 hover:text-purple-600 font-medium transition">FAQ</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#enroll" class="gradient-bg text-white px-6 py-2.5 rounded-lg font-semibold hover:opacity-90 transition cta-button">
+                        Start Free Trial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-8 bg-gradient-to-b from-purple-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Left Column -->
+                <div class="pt-8">
+                    <!-- Social Proof Badge -->
+                    <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 text-green-700 px-4 py-2 rounded-full text-sm font-semibold mb-6 animate-float">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        347 students enrolled today
+                    </div>
+                    
+                    <!-- Headline - Clear Value Proposition -->
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
+                        Land Your First <span class="gradient-text">$75K+ Dev Job</span> in 90 Days
+                    </h1>
+                    
+                    <!-- Subheadline - Overcome Objections -->
+                    <p class="text-xl text-gray-700 mb-8 leading-relaxed">
+                        Zero to hired full-stack developer. No CS degree needed. Build 12 portfolio projects employers actually want to see. <strong>95% job placement rate.</strong>
+                    </p>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="flex items-center gap-6 mb-8 flex-wrap">
+                        <div class="flex items-center gap-2">
+                            <span class="text-yellow-400 text-2xl">⭐⭐⭐⭐⭐</span>
+                            <div>
+                                <div class="font-bold text-lg">4.9/5</div>
+                                <div class="text-sm text-gray-600">8,247 reviews</div>
+                            </div>
+                        </div>
+                        <div class="w-px h-12 bg-gray-300"></div>
+                        <div>
+                            <div class="font-bold text-lg">15,000+</div>
+                            <div class="text-sm text-gray-600">Graduates hired</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Benefits - Scannable -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl mt-1">✓</span>
+                            <div>
+                                <div class="font-semibold">Job Guarantee</div>
+                                <div class="text-sm text-gray-600">Or tuition refund</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl mt-1">✓</span>
+                            <div>
+                                <div class="font-semibold">Lifetime Access</div>
+                                <div class="text-sm text-gray-600">All updates free</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl mt-1">✓</span>
+                            <div>
+                                <div class="font-semibold">24/7 AI Assistant</div>
+                                <div class="text-sm text-gray-600">Never get stuck</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl mt-1">✓</span>
+                            <div>
+                                <div class="font-semibold">Interview Prep</div>
+                                <div class="text-sm text-gray-600">Resume + coaching</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile CTA -->
+                    <div class="lg:hidden mb-8">
+                        <a href="#enroll" class="block w-full gradient-bg text-white text-center py-5 rounded-xl font-bold text-lg cta-button mb-3">
+                            Start Free 7-Day Trial
+                        </a>
+                        <p class="text-center text-sm text-gray-600">No credit card required • Cancel anytime • 30-day refund</p>
+                    </div>
+                    
+                    <!-- Companies Logo Bar -->
+                    <div class="border-t pt-6">
+                        <p class="text-sm text-gray-600 mb-4 text-center lg:text-left">Our graduates work at:</p>
+                        <div class="flex items-center justify-center lg:justify-start gap-8 flex-wrap opacity-60">
+                            <div class="font-bold text-xl">Google</div>
+                            <div class="font-bold text-xl">Microsoft</div>
+                            <div class="font-bold text-xl">Amazon</div>
+                            <div class="font-bold text-xl">Meta</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Sticky CTA Card -->
+                <div class="sticky-cta">
+                    <div class="bg-white rounded-2xl shadow-2xl border-2 border-purple-100 overflow-hidden">
+                        <!-- Video Preview -->
+                        <div class="video-placeholder h-56 flex items-center justify-center text-white relative cursor-pointer group">
+                            <div class="relative z-10 text-center">
+                                <div class="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-3 mx-auto group-hover:scale-110 transition">
+                                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                                    </svg>
+                                </div>
+                                <p class="font-bold text-lg">Watch Success Stories</p>
+                                <p class="text-sm text-purple-100">2 min overview</p>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <!-- Scarcity Indicator -->
+                            <div class="bg-red-50 border border-red-200 rounded-lg p-3 mb-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm font-semibold text-red-700">🔥 Only 23 spots left at this price</p>
+                                </div>
+                                <div class="w-full bg-red-200 rounded-full h-2">
+                                    <div class="scarcity-bar rounded-full h-2" style="width: 23%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Price -->
+                            <div class="mb-6">
+                                <div class="flex items-baseline gap-3 mb-2">
+                                    <span class="text-5xl font-bold gradient-text">$49</span>
+                                    <div>
+                                        <div class="text-2xl text-gray-400 line-through">$199</div>
+                                        <div class="text-sm text-gray-600">per month</div>
+                                    </div>
+                                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-lg text-sm font-bold ml-auto">75% OFF</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Cancel anytime • No long-term commitment</p>
+                            </div>
+                            
+                            <!-- Countdown Timer -->
+                            <div class="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-4 mb-6">
+                                <p class="text-sm font-semibold text-red-700 mb-3 text-center">⏰ Special Pricing Expires In:</p>
+                                <div class="flex gap-2 justify-center stat-number">
+                                    <div class="text-center bg-white rounded-lg p-2 min-w-[60px]">
+                                        <div class="text-3xl font-bold text-red-700" id="hours">23</div>
+                                        <div class="text-xs text-gray-600 uppercase">Hours</div>
+                                    </div>
+                                    <div class="text-3xl font-bold text-red-700 flex items-center">:</div>
+                                    <div class="text-center bg-white rounded-lg p-2 min-w-[60px]">
+                                        <div class="text-3xl font-bold text-red-700" id="minutes">45</div>
+                                        <div class="text-xs text-gray-600 uppercase">Mins</div>
+                                    </div>
+                                    <div class="text-3xl font-bold text-red-700 flex items-center">:</div>
+                                    <div class="text-center bg-white rounded-lg p-2 min-w-[60px]">
+                                        <div class="text-3xl font-bold text-red-700" id="seconds">32</div>
+                                        <div class="text-xs text-gray-600 uppercase">Secs</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Primary CTA -->
+                            <a href="#enroll" class="block w-full gradient-bg text-white text-center py-5 rounded-xl font-bold text-lg mb-3 cta-button pulse-glow">
+                                Start Free 7-Day Trial →
+                            </a>
+                            
+                            <p class="text-center text-sm text-gray-600 mb-6">
+                                <strong>No credit card required</strong> • Full access for 7 days
+                            </p>
+                            
+                            <!-- What's Included - Value Stack -->
+                            <div class="border-t pt-6">
+                                <p class="font-bold text-lg mb-4">Everything You Need to Get Hired:</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-green-500 text-xl flex-shrink-0">✓</span>
+                                        <div>
+                                            <div class="font-semibold">40+ Hours of HD Video</div>
+                                            <div class="text-sm text-gray-600">Step-by-step tutorials</div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-green-500 text-xl flex-shrink-0">✓</span>
+                                        <div>
+                                            <div class="font-semibold">12 Portfolio Projects</div>
+                                            <div class="text-sm text-gray-600">Real-world applications</div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-green-500 text-xl flex-shrink-0">✓</span>
+                                        <div>
+                                            <div class="font-semibold">Job Placement Support</div>
+                                            <div class="text-sm text-gray-600">Resume, LinkedIn, interviews</div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-green-500 text-xl flex-shrink-0">✓</span>
+                                        <div>
+                                            <div class="font-semibold">24/7 AI Coding Assistant</div>
+                                            <div class="text-sm text-gray-600">Get unstuck instantly</div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-green-500 text-xl flex-shrink-0">✓</span>
+                                        <div>
+                                            <div class="font-semibold">Verified Certificate</div>
+                                            <div class="text-sm text-gray-600">Add to LinkedIn</div>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="text-green-500 text-xl flex-shrink-0">✓</span>
+                                        <div>
+                                            <div class="font-semibold">Lifetime Access</div>
+                                            <div class="text-sm text-gray-600">All future updates included</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Guarantee Badge -->
+                            <div class="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4 guarantee-badge">
+                                <div class="flex items-center gap-3">
+                                    <div class="text-4xl">🛡️</div>
+                                    <div>
+                                        <div class="font-bold text-green-900">Job Guarantee or Money Back</div>
+                                        <div class="text-sm text-green-700">Get hired within 6 months or full refund</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trust Badges Below Card -->
+                    <div class="mt-4 flex items-center justify-center gap-6 flex-wrap text-sm text-gray-600">
+                        <div class="flex items-center gap-2 trust-badge px-3 py-2 rounded-lg">
+                            <span>🔒</span>
+                            <span class="font-medium">256-bit Encryption</span>
+                        </div>
+                        <div class="flex items-center gap-2 trust-badge px-3 py-2 rounded-lg">
+                            <span>⚡</span>
+                            <span class="font-medium">Instant Access</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Ticker -->
+    <section class="py-4 bg-gradient-to-r from-purple-600 to-indigo-600 overflow-hidden">
+        <div class="social-proof-scroll">
+            <div class="social-proof-item flex items-center gap-12 text-white font-medium whitespace-nowrap">
+                <span>🎉 Sarah J. landed $82K job at Microsoft</span>
+                <span>💼 Mike R. hired by Amazon after Module 6</span>
+                <span>🚀 Lisa K. got 3 offers in 2 weeks</span>
+                <span>⭐ David M. rated 5 stars - "Life-changing"</span>
+                <span>🏆 Emma T. promoted to Senior Dev in 1 year</span>
+                <span>🎉 Sarah J. landed $82K job at Microsoft</span>
+                <span>💼 Mike R. hired by Amazon after Module 6</span>
+                <span>🚀 Lisa K. got 3 offers in 2 weeks</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn - Benefit-Focused -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Master the Full Stack</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Everything you need to build production-ready applications and land high-paying developer jobs</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="benefit-card bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl border-2 border-blue-100">
+                    <div class="text-5xl mb-4">🎨</div>
+                    <h3 class="font-bold text-xl mb-3">Modern Frontend</h3>
+                    <p class="text-gray-700 mb-4">Build beautiful, responsive UIs with HTML5, CSS3, JavaScript, and React. Master Tailwind CSS and modern design patterns.</p>
+                    <div class="text-sm text-gray-600">
+                        <div class="font-semibold mb-2">You'll build:</div>
+                        <ul class="space-y-1">
+                            <li>• E-commerce website</li>
+                            <li>• Social media dashboard</li>
+                            <li>• Portfolio site</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl border-2 border-green-100">
+                    <div class="text-5xl mb-4">⚙️</div>
+                    <h3 class="font-bold text-xl mb-3">Backend APIs</h3>
+                    <p class="text-gray-700 mb-4">Create scalable REST APIs with Node.js and Express. Handle authentication, authorization, and data validation.</p>
+                    <div class="text-sm text-gray-600">
+                        <div class="font-semibold mb-2">You'll build:</div>
+                        <ul class="space-y-1">
+                            <li>• Task management API</li>
+                            <li>• Authentication system</li>
+                            <li>• Real-time chat server</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-100">
+                    <div class="text-5xl mb-4">💾</div>
+                    <h3 class="font-bold text-xl mb-3">Database Design</h3>
+                    <p class="text-gray-700 mb-4">Work with MongoDB and PostgreSQL. Learn data modeling, complex queries, indexing, and performance optimization.</p>
+                    <div class="text-sm text-gray-600">
+                        <div class="font-semibold mb-2">You'll build:</div>
+                        <ul class="space-y-1">
+                            <li>• User management system</li>
+                            <li>• Analytics dashboard</li>
+                            <li>• Content platform</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-yellow-50 to-orange-50 p-8 rounded-2xl border-2 border-yellow-100">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="font-bold text-xl mb-3">Cloud Deployment</h3>
+                    <p class="text-gray-700 mb-4">Deploy to AWS, Heroku, and Vercel. Learn Docker, CI/CD pipelines, monitoring, and scaling strategies.</p>
+                    <div class="text-sm text-gray-600">
+                        <div class="font-semibold mb-2">You'll learn:</div>
+                        <ul class="space-y-1">
+                            <li>• AWS EC2 & S3</li>
+                            <li>• Docker containers</li>
+                            <li>• GitHub Actions CI/CD</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-red-50 to-rose-50 p-8 rounded-2xl border-2 border-red-100">
+                    <div class="text-5xl mb-4">🔐</div>
+                    <h3 class="font-bold text-xl mb-3">Security & Auth</h3>
+                    <p class="text-gray-700 mb-4">Implement JWT, OAuth, encryption, and security best practices. Prevent XSS, CSRF, and SQL injection attacks.</p>
+                    <div class="text-sm text-gray-600">
+                        <div class="font-semibold mb-2">You'll implement:</div>
+                        <ul class="space-y-1">
+                            <li>• JWT authentication</li>
+                            <li>• OAuth social login</li>
+                            <li>• Role-based access</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="benefit-card bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-2xl border-2 border-indigo-100">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="font-bold text-xl mb-3">Job Interview Prep</h3>
+                    <p class="text-gray-700 mb-4">Master Git, testing, debugging, and Agile. Get interview coaching, resume review, and negotiation strategies.</p>
+                    <div class="text-sm text-gray-600">
+                        <div class="font-semibold mb-2">Includes:</div>
+                        <ul class="space-y-1">
+                            <li>• 100+ interview questions</li>
+                            <li>• Resume templates</li>
+                            <li>• Salary negotiation guide</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum with Interactive Accordion -->
+    <section id="curriculum" class="py-20 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Complete 90-Day Roadmap</h2>
+                <p class="text-xl text-gray-600">120 lessons • 12 portfolio projects • 40+ hours of content</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-lg font-semibold">
+                    <span>📊</span>
+                    <span>Average completion time: 12 weeks</span>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- Module 1 -->
+                 <div class="space-y-4">
+                <!-- Module 1 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(1)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl font-bold text-blue-600">1</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Frontend Foundations</h3>
+                                <p class="text-gray-600">HTML5, CSS3, JavaScript ES6+ • 15 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-1">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-blue-500">▸</span>
+                                    <span>Semantic HTML & accessibility best practices</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-blue-500">▸</span>
+                                    <span>Modern CSS: Flexbox, Grid, animations</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-blue-500">▸</span>
+                                    <span>JavaScript fundamentals & DOM manipulation</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Project: Responsive portfolio website</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(2)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl font-bold text-green-600">2</div>
+                            <div>
+                                <h3 class="font-bold text-xl">React & Modern Frontend</h3>
+                                <p class="text-gray-600">React, Hooks, State Management • 18 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-2">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500">▸</span>
+                                    <span>React components, props, and state</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500">▸</span>
+                                    <span>Custom hooks and context API</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500">▸</span>
+                                    <span>Tailwind CSS and responsive design</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Project: Social media dashboard with live feeds</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(3)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl font-bold text-purple-600">3</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Backend & APIs</h3>
+                                <p class="text-gray-600">Node.js, Express, REST APIs • 20 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-3">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-purple-500">▸</span>
+                                    <span>Node.js fundamentals and npm ecosystem</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-purple-500">▸</span>
+                                    <span>Building RESTful APIs with Express</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-purple-500">▸</span>
+                                    <span>Authentication and authorization patterns</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Project: Task management API with user auth</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(4)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-2xl font-bold text-yellow-600">4</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Databases & Data Management</h3>
+                                <p class="text-gray-600">MongoDB, PostgreSQL, ORMs • 16 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-4">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-yellow-500">▸</span>
+                                    <span>SQL vs NoSQL: when to use each</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-yellow-500">▸</span>
+                                    <span>Database design and normalization</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-yellow-500">▸</span>
+                                    <span>Prisma and Mongoose ORMs</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Project: E-commerce platform with inventory system</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(5)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-2xl font-bold text-red-600">5</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Full-Stack Integration</h3>
+                                <p class="text-gray-600">Connect frontend to backend • 14 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-5">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-red-500">▸</span>
+                                    <span>Axios and data fetching strategies</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-red-500">▸</span>
+                                    <span>State management with Redux/Zustand</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-red-500">▸</span>
+                                    <span>Real-time features with WebSockets</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Project: Real-time chat application</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(6)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-2xl font-bold text-indigo-600">6</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Deployment & DevOps</h3>
+                                <p class="text-gray-600">Docker, AWS, CI/CD • 12 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-6">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-indigo-500">▸</span>
+                                    <span>Containerization with Docker</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-indigo-500">▸</span>
+                                    <span>Deploying to AWS, Vercel, and Heroku</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-indigo-500">▸</span>
+                                    <span>GitHub Actions CI/CD pipelines</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Project: Deploy full-stack app to production</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(7)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center text-2xl font-bold text-pink-600">7</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Testing & Best Practices</h3>
+                                <p class="text-gray-600">Jest, Testing Library, TDD • 10 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-7">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-pink-500">▸</span>
+                                    <span>Unit, integration, and E2E testing</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-pink-500">▸</span>
+                                    <span>Test-driven development workflow</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-pink-500">▸</span>
+                                    <span>Code quality and documentation</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Project: Add comprehensive test coverage</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-accordion bg-white rounded-xl border-2 border-gray-200 overflow-hidden cursor-pointer" onclick="toggleModule(8)">
+                    <div class="p-6 flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-2xl font-bold text-teal-600">8</div>
+                            <div>
+                                <h3 class="font-bold text-xl">Job Search & Interview Mastery</h3>
+                                <p class="text-gray-600">Portfolio, resume, interviews • 15 lessons</p>
+                            </div>
+                        </div>
+                        <svg class="w-6 h-6 transform transition module-arrow" id="arrow-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="module-content" id="module-8">
+                        <div class="px-6 pb-6 border-t bg-gray-50">
+                            <ul class="space-y-2 pt-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-teal-500">▸</span>
+                                    <span>Building a standout portfolio</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-teal-500">▸</span>
+                                    <span>Resume optimization for ATS systems</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-teal-500">▸</span>
+                                    <span>Mock interviews and salary negotiation</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-green-500 font-bold">🎯</span>
+                                    <span class="font-semibold">Final Project: Complete portfolio showcase</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#enroll" class="inline-flex items-center gap-2 gradient-bg text-white px-8 py-4 rounded-xl font-bold text-lg cta-button">
+                    Get Full Curriculum Access →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Real Success Stories</h2>
+                <p class="text-xl text-gray-600">Over 15,000 graduates now working as developers</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl border-2 border-purple-100 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-2xl">SJ</div>
+                        <div>
+                            <div class="font-bold text-lg">Sarah Johnson</div>
+                            <div class="text-sm text-gray-600">Frontend Dev at Microsoft</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4">"I went from waitressing to a $82K dev job in 4 months. The portfolio projects were exactly what recruiters wanted to see. Best investment I've ever made."</p>
+                    <div class="text-sm text-purple-600 font-semibold">Hired in 4 months</div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border-2 border-blue-100 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full flex items-center justify-center text-white font-bold text-2xl">MR</div>
+                        <div>
+                            <div class="font-bold text-lg">Mike Rodriguez</div>
+                            <div class="text-sm text-gray-600">Full-Stack at Amazon</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4">"The AI assistant saved me so much time. I could learn at 2am when I was stuck. Got hired before I even finished Module 8!"</p>
+                    <div class="text-sm text-blue-600 font-semibold">Hired after Module 6</div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border-2 border-green-100 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center text-white font-bold text-2xl">LK</div>
+                        <div>
+                            <div class="font-bold text-lg">Lisa Kim</div>
+                            <div class="text-sm text-gray-600">Software Engineer at Stripe</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4">"I had zero coding experience. The step-by-step approach made everything click. Got 3 job offers within 2 weeks of finishing."</p>
+                    <div class="text-sm text-green-600 font-semibold">3 offers in 2 weeks</div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-gradient-to-br from-yellow-50 to-white p-8 rounded-2xl border-2 border-yellow-100 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center text-white font-bold text-2xl">DM</div>
+                        <div>
+                            <div class="font-bold text-lg">David Martinez</div>
+                            <div class="text-sm text-gray-600">Backend Dev at Shopify</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4">"The job guarantee gave me confidence to quit my job. Worth every penny. My salary doubled and I love what I do now."</p>
+                    <div class="text-sm text-yellow-600 font-semibold">Salary doubled</div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="bg-gradient-to-br from-red-50 to-white p-8 rounded-2xl border-2 border-red-100 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-2xl">ET</div>
+                        <div>
+                            <div class="font-bold text-lg">Emma Thompson</div>
+                            <div class="text-sm text-gray-600">Senior Dev at Airbnb</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4">"Started as junior dev, promoted to senior in 14 months. The fundamentals I learned here were rock solid. Life-changing."</p>
+                    <div class="text-sm text-red-600 font-semibold">Promoted in 14 months</div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-2xl border-2 border-indigo-100 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold text-2xl">JC</div>
+                        <div>
+                            <div class="font-bold text-lg">James Chen</div>
+                            <div class="text-sm text-gray-600">Full-Stack at Netflix</div>
+                        </div>
+                    </div>
+                    <div class="text-yellow-400 mb-3">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-700 mb-4">"At 45, I thought I was too old to switch careers. This course proved me wrong. Now I'm living my dream at Netflix."</p>
+                    <div class="text-sm text-indigo-600 font-semibold">Career change at 45</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Everything you need to know</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
+                    <h3 class="font-bold text-lg mb-2">Do I need any prior experience?</h3>
+                    <p class="text-gray-700">No! This course is designed for complete beginners. We start from the very basics and build up to advanced topics. If you can use a computer and browse the web, you can learn to code.</p>
+                </div>
+
+                <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
+                    <h3 class="font-bold text-lg mb-2">How does the job guarantee work?</h3>
+                    <p class="text-gray-700">Complete all modules and projects within 6 months. Apply to at least 50 jobs using our templates and coaching. If you don't get hired, we'll refund 100% of your tuition. No questions asked.</p>
+                </div>
+
+                <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
+                    <h3 class="font-bold text-lg mb-2">How much time do I need per week?</h3>
+                    <p class="text-gray-700">Most students dedicate 10-15 hours per week. The course is self-paced, so you can go faster or slower based on your schedule. Full-time students often finish in 8-10 weeks.</p>
+                </div>
+
+                <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
+                    <h3 class="font-bold text-lg mb-2">What if I get stuck on something?</h3>
+                    <p class="text-gray-700">You have 24/7 access to our AI coding assistant that can answer questions instantly. Plus, you'll join our community of 15,000+ students and alumni who help each other daily.</p>
+                </div>
+
+                <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
+                    <h3 class="font-bold text-lg mb-2">Can I really get hired in 90 days?</h3>
+                    <p class="text-gray-700">Yes! Our average graduate completes the course in 12 weeks and gets hired within 4-6 weeks after finishing. We have a 95% job placement rate. Your portfolio projects will be exactly what employers want to see.</p>
+                </div>
+
+                <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
+                    <h3 class="font-bold text-lg mb-2">What's included in the free trial?</h3>
+                    <p class="text-gray-700">Full access to Module 1 (15 lessons), the AI assistant, community forum, and all course materials. No credit card required. After 7 days, continue for $49/month or cancel anytime.</p>
+                </div>
+
+                <div class="bg-white rounded-xl border-2 border-gray-200 p-6">
+                    <h3 class="font-bold text-lg mb-2">Is this course worth the investment?</h3>
+                    <p class="text-gray-700">The average junior developer salary is $75,000. Our course costs $49/month. Most students complete it in 3 months ($147 total). That's an ROI of over 50,000%. Plus, you have the job guarantee for peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="enroll" class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Start Your Developer Journey Today</h2>
+            <p class="text-xl mb-8 text-purple-100">Join 15,000+ graduates who transformed their careers</p>
+            
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8">
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-5xl font-bold mb-2">95%</div>
+                        <div class="text-purple-100">Job Placement Rate</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold mb-2">$75K</div>
+                        <div class="text-purple-100">Average Starting Salary</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl font-bold mb-2">12</div>
+                        <div class="text-purple-100">Weeks Average Completion</div>
+                    </div>
+                </div>
+                
+                <a href="#" class="inline-block bg-white text-purple-600 px-12 py-5 rounded-xl font-bold text-xl mb-4 hover:bg-gray-100 transition cta-button">
+                    Start Free 7-Day Trial →
+                </a>
+                <p class="text-purple-100 text-sm">No credit card • Cancel anytime • 30-day money-back guarantee</p>
+            </div>
+            
+            <div class="flex items-center justify-center gap-8 flex-wrap text-sm">
+                <div class="flex items-center gap-2">
+                    <span>🔒</span>
+                    <span>Secure Checkout</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>✓</span>
+                    <span>30-Day Refund</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>🛡️</span>
+                    <span>Job Guarantee</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold text-xl mb-4 gradient-text">CodeMaster</h3>
+                    <p class="text-sm">Transform your career with the most comprehensive full-stack development course.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Course</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#curriculum" class="hover:text-white transition">Curriculum</a></li>
+                        <li><a href="#reviews" class="hover:text-white transition">Success Stories</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p>&copy; 2026 CodeMaster. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Module Accordion
+        function toggleModule(moduleNum) {
+            const content = document.getElementById(`module-${moduleNum}`);
+            const arrow = document.getElementById(`arrow-${moduleNum}`);
+            const accordion = content.parentElement;
+            
+            content.classList.toggle('active');
+            arrow.classList.toggle('rotate-180');
+            accordion.classList.toggle('active');
+        }
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html
